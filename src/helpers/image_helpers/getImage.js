@@ -13,13 +13,17 @@ export const allImages = {
             open: ForestImages.open_path(),
             turnRight: ForestImages.tRight_path(),
             turnRightUp: ForestImages.tRightUp_path(),
-            forward: ForestImages.forward_path(),
+            forward: ForestImages.forward_path()
         },
 
         walls: {
             trees_back: ForestImages.trees_back(),
+            trees_front: ForestImages.trees_front(),
+            trees_full: ForestImages.trees_full(),
+            trees_right: ForestImages.trees_right(),
+            trees_left: ForestImages.trees_left()
         },
-        
+
         enemeies: {
 
         }
