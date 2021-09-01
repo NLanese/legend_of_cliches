@@ -1,5 +1,5 @@
 import { allImages } from "../../helpers/image_helpers/getImage"
-const fullTrees = {img: allImages.forest.walls.trees_full, walkable: false, discovered: false, inv_item: "N/A", inv_efect: "N/A"}
+const fullDune = {img: allImages.forest.walls.trees_full, walkable: false, discovered: false, inv_item: "N/A", inv_efect: "N/A"}
 const leftTrees = {img: allImages.forest.walls.trees_left, walkable: false, discovered: false, inv_item: "N/A", inv_efect: "N/A"}
 const rightTrees = {img: allImages.forest.walls.trees_right, walkable: false, discovered: false, inv_item: "N/A", inv_efect: "N/A"}
 
@@ -7,7 +7,7 @@ const rightTrees = {img: allImages.forest.walls.trees_right, walkable: false, di
 // This function will generate the 50x200 map 
 // Every tile will default to an object that looks like the following..
 
-    // {img: trees_full, walkable: false, discovered: false, inv_item: "N/A", inv_effect: "N/A"}
+    // {img: dune_full, walkable: false, discovered: false, inv_item: "N/A", inv_effect: "N/A"}
     
         // img will dictate what image is shown
         // walkable determines if the player can go on this tile
@@ -21,14 +21,14 @@ function generateGrid(){
     })
     mapGrid.forEach( (element) => {
         element.forEach( (tile) => {
-            tile = fullTrees
+            tile = fullDune
         })
     })
 
 }
 
 
-export default function manageForestMap(
+export default function manageDesertMap(
     state= {
         map_grid: generateGrid()
       //  enemies: 
