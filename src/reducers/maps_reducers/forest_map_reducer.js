@@ -3,15 +3,15 @@ import changeDirection from "../../helpers/map_helpers/changeDirection"
 
 // IMAGE imports and TILE TYPE DECLARATION
 import { allImages } from "../../helpers/image_helpers/getImage"
-const fullTrees = {img: allImages.forest.walls.trees_full, walkable: false, discovered: false, inv_item: "N/A", inv_efect: "N/A",  occupied: false, occupied_by: "N/A"}
-const leftTrees = {img: allImages.forest.walls.trees_left, walkable: false, discovered: false, inv_item: "N/A", inv_efect: "N/A",  occupied: false, occupied_by: "N/A"}
-const rightTrees = {img: allImages.forest.walls.trees_right, walkable: false, discovered: false, inv_item: "N/A", inv_efect: "N/A",  occupied: false, occupied_by: "N/A"}
-const backTrees =  {img: allImages.forest.walls.trees_back, walkable: false, discovered: false, inv_item: "N/A", inv_efect: "N/A",  occupied: false, occupied_by: "N/A"}
-const frontTrees =  {img: allImages.forest.walls.trees_front, walkable: false, discovered: false, inv_item: "N/A", inv_efect: "N/A",  occupied: false, occupied_by: "N/A"}
-const RT_treeCorner =  {img: allImages.forest.walls.tree_corner_RT, walkable: false, discovered: false, inv_item: "N/A", inv_efect: "N/A",  occupied: false, occupied_by: "N/A"}
-const RB_treeCorner =  {img: allImages.forest.walls.tree_corner_RB, walkable: false, discovered: false, inv_item: "N/A", inv_efect: "N/A",  occupied: false, occupied_by: "N/A"}
-const LT_treeCorner =  {img: allImages.forest.walls.tree_corner_LT, walkable: false, discovered: false, inv_item: "N/A", inv_efect: "N/A",  occupied: false, occupied_by: "N/A"}
-const LB_treeCorner =  {img: allImages.forest.walls.tree_corner_LB, walkable: false, discovered: false, inv_item: "N/A", inv_efect: "N/A",  occupied: false, occupied_by: "N/A"}
+const fullTrees = {nametype: "Tree", img: allImages.forest.walls.trees_full, walkable: false, discovered: false, inv_item: "N/A", inv_efect: "N/A",  occupied: false, occupied_by: "N/A"}
+const leftTrees = {nametype: "Tree", img: allImages.forest.walls.trees_left, walkable: false, discovered: false, inv_item: "N/A", inv_efect: "N/A",  occupied: false, occupied_by: "N/A"}
+const rightTrees = {nametype: "Tree", img: allImages.forest.walls.trees_right, walkable: false, discovered: false, inv_item: "N/A", inv_efect: "N/A",  occupied: false, occupied_by: "N/A"}
+const backTrees =  {nametype: "Tree", img: allImages.forest.walls.trees_back, walkable: false, discovered: false, inv_item: "N/A", inv_efect: "N/A",  occupied: false, occupied_by: "N/A"}
+const frontTrees =  {nametype: "Tree", img: allImages.forest.walls.trees_front, walkable: false, discovered: false, inv_item: "N/A", inv_efect: "N/A",  occupied: false, occupied_by: "N/A"}
+const RT_treeCorner =  {nametype: "Tree", img: allImages.forest.walls.tree_corner_RT, walkable: false, discovered: false, inv_item: "N/A", inv_efect: "N/A",  occupied: false, occupied_by: "N/A"}
+const RB_treeCorner =  {nametype: "Tree", img: allImages.forest.walls.tree_corner_RB, walkable: false, discovered: false, inv_item: "N/A", inv_efect: "N/A",  occupied: false, occupied_by: "N/A"}
+const LT_treeCorner =  {nametype: "Tree", img: allImages.forest.walls.tree_corner_LT, walkable: false, discovered: false, inv_item: "N/A", inv_efect: "N/A",  occupied: false, occupied_by: "N/A"}
+const LB_treeCorner =  {nametype: "Tree", img: allImages.forest.walls.tree_corner_LB, walkable: false, discovered: false, inv_item: "N/A", inv_efect: "N/A",  occupied: false, occupied_by: "N/A"}
 const forward_path =  {img: allImages.forest.pathways.forward, walkable: true, discovered: false, inv_item: "N/A", inv_efect: "N/A",  occupied: false, occupied_by: "N/A"}
 const fork_down =  {img: allImages.forest.pathways.fork, walkable: true, discovered: false, inv_item: "N/A", inv_efect: "N/A",  occupied: false, occupied_by: "N/A"}
 const fork_up =  {img: allImages.forest.pathways.fork_up, walkable: true, discovered: false, inv_item: "N/A", inv_efect: "N/A",  occupied: false, occupied_by: "N/A"}
@@ -27,8 +27,9 @@ const lTurn_down = {img: allImages.forest.pathways.turnLeft, walkable: true, dis
 // This function will generate the 50x200 map 
 // Every tile will default to an object that looks like the following..
 
-    // {img: trees_full, walkable: false, discovered: false, inv_item: "N/A", inv_effect: "N/A", occupied: false, occupied_by: "N/A"}
+    // {nametype: "Tree" img: trees_full, walkable: false, discovered: false, inv_item: "N/A", inv_effect: "N/A", occupied: false, occupied_by: "N/A"}
     
+        // nametype will be a string that labels the tile
         // img will dictate what image is shown
         // walkable determines if the player can go on this tile
         // discovered determines if it will be revelaed when a player looks at the map

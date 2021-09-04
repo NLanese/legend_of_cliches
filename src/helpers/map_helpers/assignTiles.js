@@ -33,6 +33,14 @@ function renderTrees(tile_array, map_grid){
                 else if (left.nametype == "Tree" && right.nametype == "Tree" && up.nametype == "Tree"){
                     tile = tile_array.frontTrees
                 }
+                // if the tile has trees to the bottom, top, and right
+                else if (up.nametype == "Tree" && down.nametype == "Tree" && right.nametype == "Tree"){
+                    tile = tile_array.rightTrees
+                }
+                 // if the tile has trees to the bottom, top, and left
+                else if (up.nametype == "Tree" && down.nametype == "Tree" && left.nametype == "Tree"){
+                    tile = tile_array.leftTrees
+                }
             }
         })
     })
@@ -98,6 +106,18 @@ function placePathways(tile_array, map_grid){
     map_grid[18][8] = tile_array.open
     map_grid[19][8] = tile_array.open
     map_grid[20][8] = tile_array.open
+    map_grid[28][8] = tile_array.forward_path
+    map_grid[29][8] = tile_array.open
+    map_grid[30][8] = tile_array.open
+    map_grid[31][8] = tile_array.open
+    map_grid[36][8] = tile_array.open
+    map_grid[37][8] = tile_array.open
+    map_grid[38][8] = tile_array.open
+    map_grid[43][8] = tile_array.open
+    map_grid[44][8] = tile_array.open
+    map_grid[45][8] = tile_array.forward_path
+    map_grid[46][8] = tile_array.open
+
     
     // row 4
     map_grid[8][9] = tile_array.forward_path
@@ -108,6 +128,15 @@ function placePathways(tile_array, map_grid){
     map_grid[19][9] = tile_array.open
     map_grid[20][9] = tile_array.open
     map_grid[21][9] = tile_array.open
+    map_grid[26][9] = tile_array.open
+    map_grid[27][9] = tile_array.open
+    map_grid[28][9] = tile_array.forward_path
+    map_grid[29][9] = tile_array.open
+    map_grid[37][9] = tile_array.open
+    map_grid[38][9] = tile_array.open
+    map_grid[44][9] = tile_array.open
+    map_grid[45][9] = tile_array.forward_path
+    map_grid[46][9] = tile_array.open
 
     // row 5
     map_grid[8][10] = tile_array.forward_path
@@ -116,4 +145,11 @@ function placePathways(tile_array, map_grid){
     map_grid[19][10] = tile_array.open
     map_grid[20][10] = tile_array.open
     map_grid[21][10] = tile_array.open
+    ap_grid[26][10] = tile_array.open
+    map_grid[27][10] = tile_array.open
+    map_grid[28][10] = tile_array.forward_path
+    map_grid[29][10] = tile_array.open
+    map_grid[44][10] = tile_array.open
+    map_grid[45][10] = tile_array.forward_path
+    map_grid[46][10] = tile_array.open
 }
