@@ -1,3 +1,7 @@
+// FUNCTION Imports
+import changeDirection from "../../helpers/map_helpers/changeDirection"
+
+// IMAGE imports
 import { allImages } from "../../helpers/image_helpers/getImage"
 const fullTrees = {img: allImages.forest.walls.trees_full, walkable: false, discovered: false, inv_item: "N/A", inv_efect: "N/A"}
 const leftTrees = {img: allImages.forest.walls.trees_left, walkable: false, discovered: false, inv_item: "N/A", inv_efect: "N/A"}
@@ -30,9 +34,20 @@ function generateGrid(){
 
 export default function manageForestMap(
     state= {
-        map_grid: generateGrid()
+        map_grid: generateGrid(),                       // Look above for what generateGrid does. This renders the map
+        player_pos: "(9,0)"                             // This will keep track of which space the player is on. It starts at the x = 9 y = 0 
+
       //  enemies: 
     }, 
     action){
+        switch(action.type){
 
+        case("MOVE_PLAYER"):  // {type: "MOVE_PLAYER", direction: <string>}
+            // change the player_pos to reflect the new location
+            // This will use the changeDirection function from 
+            return {...state, player_pos: changeDirection(action.direction, state.player_pos, state.map_grid)}
+            default:
+                return state
+            
+        }
     }
