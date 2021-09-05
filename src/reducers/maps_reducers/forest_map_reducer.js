@@ -21,7 +21,7 @@ const horizontal =  {nametype: "Path", img: allImages.forest.pathways.horizontal
 const rTurn_down =  {nametype: "Path", img: allImages.forest.pathways.turnRight, walkable: true, discovered: false, inv_item: "N/A", inv_efect: "N/A",  occupied: false, occupied_by: "N/A"}
 const lTurn_down = {nametype: "Path", img: allImages.forest.pathways.turnLeft, walkable: true, discovered: false, inv_item: "N/A", inv_efect: "N/A",  occupied: false, occupied_by: "N/A"}
 
-const tile_array = [fullTrees, leftTrees, rightTrees, backTrees, frontTrees, RT_treeCorner, RB_treeCorner, LT_treeCorner, LB_treeCorner, forward_path, fork_down, fork_up, fourway, horizontal, rTurn_down, lTurn_down]
+const tile_array = {fullTrees: fullTrees, leftTrees: leftTrees, rightTrees: rightTrees, backTrees: backTrees, frontTrees: frontTrees, RT_treeCorner: RT_treeCorner, RB_treeCorner: RB_treeCorner, LT_treeCorner: LT_treeCorner, LB_treeCorner: LB_treeCorner, forward_path: forward_path, fork_down: fork_down, fork_up: fork_up, fourway: fourway, horizontal: horizontal, rTurn_down: rTurn_down, lTurn_down: lTurn_down}
 
 
 
@@ -42,14 +42,12 @@ const tile_array = [fullTrees, leftTrees, rightTrees, backTrees, frontTrees, RT_
         // occupied_by will be a player, object, or enemey object
 function generateGrid(){
     var mapGrid = new Array(50)
-    mapGrid.forEach( (element) => {
-        element = new Array(200)
-    })
-    mapGrid.forEach( (element) => {
-        element.forEach( (tile) => {
-            tile = fullTrees
-        })
-    })
+    for (let i = 0; i < 51; i++){
+        mapGrid[i] = new Array(200)
+        for (let j = 0; j < 201; j++){
+            mapGrid[i][j] = fullTrees
+        }
+    }
     mapGrid = renderForest(tile_array, mapGrid)
     return mapGrid
 }

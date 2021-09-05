@@ -171,6 +171,7 @@ function placePathways(tile_array, map_grid){
     map_grid[10][11] = tile_array.horizontal
     map_grid[11][11] = tile_array.lTurn_down
     map_grid = mass_assign(tile_array.open, map_grid, 11, [25, 26, 29, 46, 47])
+    debugger
     map_grid[27][11] = tile_array.horizontal
     map_grid[27][11] = tile_array.rTurn_up
     map_grid[45][11] = tile_array.forward_path
