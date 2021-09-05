@@ -1,11 +1,17 @@
-export function renderForest(tile_array, map_grid){
+import mass_assign from "./mass_assign_tile"
 
+
+
+export default function renderForest(tile_array, map_grid){
+    map_grid = placePathways(tile_array, map_grid)
+    map_grid = renderTrees(tile_array, map_grid)
+    return map_grid
 }
 
 // EVERY SPECIFIC PLACEMENT WILL BE Y + 1 FOR COORDINATES
 // EXAMPLE: row 0 is going to be y = 5. Column 5, Row 0 would be [5][5]
 
-
+// NOT COMPLETE
 function renderTrees(tile_array, map_grid){
     // This will automatically assign a tree tile. It will work by seeing what the tiles next to it are, for example,
     // if the tree tile has tree tiles one above, one left, one right, and one below, it will be TreesFull
@@ -44,8 +50,10 @@ function renderTrees(tile_array, map_grid){
             }
         })
     })
-
+    return map_grid
 }
+
+// NOT COMPLETE
 function placePathways(tile_array, map_grid){
 
     // row 0 -- COMPLETE
@@ -145,7 +153,7 @@ function placePathways(tile_array, map_grid){
     map_grid[19][10] = tile_array.open
     map_grid[20][10] = tile_array.open
     map_grid[21][10] = tile_array.open
-    ap_grid[26][10] = tile_array.open
+    map_grid[26][10] = tile_array.open
     map_grid[27][10] = tile_array.open
     map_grid[28][10] = tile_array.forward_path
     map_grid[29][10] = tile_array.open
@@ -154,11 +162,29 @@ function placePathways(tile_array, map_grid){
     map_grid[46][10] = tile_array.open
     map_grid[47][10] = tile_array.open
 
-    // row 6
+    // row 6 - COMPLETE
     map_grid[5][11] = tile_array.rTurn_down
     map_grid[6][11] = tile_array.horizontal
     map_grid[7][11] = tile_array.horizontal
     map_grid[8][11] = tile_array.fork_up
     map_grid[9][11] = tile_array.horizontal
     map_grid[10][11] = tile_array.horizontal
+    map_grid[11][11] = tile_array.lTurn_down
+    map_grid = mass_assign(tile_array.open, map_grid, 11, [25, 26, 29, 46, 47])
+    map_grid[27][11] = tile_array.horizontal
+    map_grid[27][11] = tile_array.rTurn_up
+    map_grid[45][11] = tile_array.forward_path
+
+    // row 7 - COMPLETE
+    map_grid = mass_assign(tile_array.forward_path, map_grid, 12, [5, 11, 45])
+    map_grid = mass_assign(tile_array.open, map_grid, 12, [6, 7, 8, 9, 10, 27, 28, 29, 39, 40, 46])
+
+    // row 8 - COMPLETE
+    map_grid = mass_assign(tile_array.open, map_grid, 13, [4, 6, 7, 8, 9, 10, 27, 38, 39, 40, 41, 42, 43, 44, 46])
+    map_grid = mass_assign(tile_array.forward_path, map_grid, 13, [5, 11, 45])
+
+    // row 9
+
+
+    return map_grid
 }

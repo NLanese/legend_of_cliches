@@ -1,5 +1,6 @@
 // FUNCTION Imports
 import changeDirection from "../../helpers/map_helpers/changeDirection"
+import renderForest from "../../helpers/map_helpers/assignForestTiles"
 
 // IMAGE imports and TILE TYPE DECLARATION
 import { allImages } from "../../helpers/image_helpers/getImage"
@@ -19,6 +20,8 @@ const fourway =  {nametype: "Path", img: allImages.forest.pathways.fourway, walk
 const horizontal =  {nametype: "Path", img: allImages.forest.pathways.horizontal, walkable: true, discovered: false, inv_item: "N/A", inv_efect: "N/A",  occupied: false, occupied_by: "N/A"}
 const rTurn_down =  {nametype: "Path", img: allImages.forest.pathways.turnRight, walkable: true, discovered: false, inv_item: "N/A", inv_efect: "N/A",  occupied: false, occupied_by: "N/A"}
 const lTurn_down = {nametype: "Path", img: allImages.forest.pathways.turnLeft, walkable: true, discovered: false, inv_item: "N/A", inv_efect: "N/A",  occupied: false, occupied_by: "N/A"}
+
+const tile_array = [fullTrees, leftTrees, rightTrees, backTrees, frontTrees, RT_treeCorner, RB_treeCorner, LT_treeCorner, LB_treeCorner, forward_path, fork_down, fork_up, fourway, horizontal, rTurn_down, lTurn_down]
 
 
 
@@ -47,14 +50,15 @@ function generateGrid(){
             tile = fullTrees
         })
     })
-
+    mapGrid = renderForest(tile_array, mapGrid)
+    return mapGrid
 }
 
 
 export default function manageForestMap(
     state= {
         map_grid: generateGrid(),                       // Look above for what generateGrid does. This renders the map
-        player_pos: "(9,0)"                             // This will keep track of which space the player is on. It starts at the x = 9 y = 0 
+        player_pos: "(9,5)"                             // This will keep track of which space the player is on. It starts at the x = 9 y = 5 
 
       //  enemies: 
     }, 
