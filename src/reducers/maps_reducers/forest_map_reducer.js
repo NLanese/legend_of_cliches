@@ -12,13 +12,13 @@ const RT_treeCorner =  {nametype: "Tree", img: allImages.forest.walls.tree_corne
 const RB_treeCorner =  {nametype: "Tree", img: allImages.forest.walls.tree_corner_RB, walkable: false, discovered: false, inv_item: "N/A", inv_efect: "N/A",  occupied: false, occupied_by: "N/A"}
 const LT_treeCorner =  {nametype: "Tree", img: allImages.forest.walls.tree_corner_LT, walkable: false, discovered: false, inv_item: "N/A", inv_efect: "N/A",  occupied: false, occupied_by: "N/A"}
 const LB_treeCorner =  {nametype: "Tree", img: allImages.forest.walls.tree_corner_LB, walkable: false, discovered: false, inv_item: "N/A", inv_efect: "N/A",  occupied: false, occupied_by: "N/A"}
-const forward_path =  {img: allImages.forest.pathways.forward, walkable: true, discovered: false, inv_item: "N/A", inv_efect: "N/A",  occupied: false, occupied_by: "N/A"}
-const fork_down =  {img: allImages.forest.pathways.fork, walkable: true, discovered: false, inv_item: "N/A", inv_efect: "N/A",  occupied: false, occupied_by: "N/A"}
-const fork_up =  {img: allImages.forest.pathways.fork_up, walkable: true, discovered: false, inv_item: "N/A", inv_efect: "N/A",  occupied: false, occupied_by: "N/A"}
-const fourway =  {img: allImages.forest.pathways.fourway, walkable: true, discovered: false, inv_item: "N/A", inv_efect: "N/A",  occupied: false, occupied_by: "N/A"}
-const horizontal =  {img: allImages.forest.pathways.horizontal, walkable: true, discovered: false, inv_item: "N/A", inv_efect: "N/A",  occupied: false, occupied_by: "N/A"}
-const rTurn_down =  {img: allImages.forest.pathways.turnRight, walkable: true, discovered: false, inv_item: "N/A", inv_efect: "N/A",  occupied: false, occupied_by: "N/A"}
-const lTurn_down = {img: allImages.forest.pathways.turnLeft, walkable: true, discovered: false, inv_item: "N/A", inv_efect: "N/A",  occupied: false, occupied_by: "N/A"}
+const forward_path =  {nametype: "Path", img: allImages.forest.pathways.forward, walkable: true, discovered: false, inv_item: "N/A", inv_efect: "N/A",  occupied: false, occupied_by: "N/A"}
+const fork_down =  {nametype: "Path", img: allImages.forest.pathways.fork, walkable: true, discovered: false, inv_item: "N/A", inv_efect: "N/A",  occupied: false, occupied_by: "N/A"}
+const fork_up =  {nametype: "Path", img: allImages.forest.pathways.fork_up, walkable: true, discovered: false, inv_item: "N/A", inv_efect: "N/A",  occupied: false, occupied_by: "N/A"}
+const fourway =  {nametype: "Path", img: allImages.forest.pathways.fourway, walkable: true, discovered: false, inv_item: "N/A", inv_efect: "N/A",  occupied: false, occupied_by: "N/A"}
+const horizontal =  {nametype: "Path", img: allImages.forest.pathways.horizontal, walkable: true, discovered: false, inv_item: "N/A", inv_efect: "N/A",  occupied: false, occupied_by: "N/A"}
+const rTurn_down =  {nametype: "Path", img: allImages.forest.pathways.turnRight, walkable: true, discovered: false, inv_item: "N/A", inv_efect: "N/A",  occupied: false, occupied_by: "N/A"}
+const lTurn_down = {nametype: "Path", img: allImages.forest.pathways.turnLeft, walkable: true, discovered: false, inv_item: "N/A", inv_efect: "N/A",  occupied: false, occupied_by: "N/A"}
 
 
 

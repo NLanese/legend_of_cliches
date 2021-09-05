@@ -98,7 +98,7 @@ function placePathways(tile_array, map_grid){
     map_grid[43][7] = tile_array.horizontal
     map_grid[44][7] = tile_array.horizontal
 
-    // row 3
+    // row 3 - COMPLETE
     map_grid[8][8] = tile_array.forward_path
     map_grid[15][8] = tile_array.open
     map_grid[16][8] = tile_array.open
@@ -119,7 +119,7 @@ function placePathways(tile_array, map_grid){
     map_grid[46][8] = tile_array.open
 
     
-    // row 4
+    // row 4 - COMPLETE
     map_grid[8][9] = tile_array.forward_path
     map_grid[15][9] = tile_array.open
     map_grid[16][9] = tile_array.open
@@ -138,7 +138,7 @@ function placePathways(tile_array, map_grid){
     map_grid[45][9] = tile_array.forward_path
     map_grid[46][9] = tile_array.open
 
-    // row 5
+    // row 5 - COMPLETE
     map_grid[8][10] = tile_array.forward_path
     map_grid[17][10] = tile_array.open
     map_grid[18][10] = tile_array.open
@@ -152,4 +152,13 @@ function placePathways(tile_array, map_grid){
     map_grid[44][10] = tile_array.open
     map_grid[45][10] = tile_array.forward_path
     map_grid[46][10] = tile_array.open
+    map_grid[47][10] = tile_array.open
+
+    // row 6
+    map_grid[5][11] = tile_array.rTurn_down
+    map_grid[6][11] = tile_array.horizontal
+    map_grid[7][11] = tile_array.horizontal
+    map_grid[8][11] = tile_array.fork_up
+    map_grid[9][11] = tile_array.horizontal
+    map_grid[10][11] = tile_array.horizontal
 }
