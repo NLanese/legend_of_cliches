@@ -16,17 +16,31 @@ function renderTrees(tile_array, map_grid){
     // This will automatically assign a tree tile. It will work by seeing what the tiles next to it are, for example,
     // if the tree tile has tree tiles one above, one left, one right, and one below, it will be TreesFull
     // if the tree tile has a tree tile below it and to the right of it only, it will be a left top corner tree
-    map_grid.forEach( (row) => {
-        row.forEach( (tile) => {
-            // sets up locals for each direction relative to the selected tile
-            let left = map_grid[row - 1][tile]
-            let right = map_grid[row + 1][tile]
-            let up = map_grid[row][tile - 1]
-            let down = map_grid[row][tile + 1]
-
+    for (let i = 0; i < map_grid.length; i++){
+        for (let j = 0; j < map_grid[i].length; j ++){
+            // sets up locals for each direction relative to the selected tile. If there is no tile 
+            // in the set direction, it assumes a tree is there
+            let left = {nametype: "Tree"}
+            let right = {nametype: "Tree"}
+            let down = {nametype: "Tree"}
+            let up = {nametype: "Tree"}
+            //debugger
+            if (i != 0){
+                left = map_grid[i - 1][j]
+            }
+            if (i != 51){
+                right = map_grid[i + 1][j]
+            }
+            if (j != 0){
+                up = map_grid[i][j - 1]
+            }
+            if (j != 201){
+                down = map_grid[i][j + 1]
+            }
+            let tile = map_grid[i][j]
             // makes sure tile is a tree tile 
             if (tile.nametype == "Tree"){
-
+                debugger
                 // if the tile is surrounded by trees on all four directions
                 if (left.nametype == "Tree" && right.nametype == "Tree" && up.nametype == "Tree" && down.nametype == "Tree"){
                     tile = tile_array.fullTrees
@@ -48,8 +62,8 @@ function renderTrees(tile_array, map_grid){
                     tile = tile_array.leftTrees
                 }
             }
-        })
-    })
+        }
+    }
     return map_grid
 }
 
@@ -171,7 +185,6 @@ function placePathways(tile_array, map_grid){
     map_grid[10][11] = tile_array.horizontal
     map_grid[11][11] = tile_array.lTurn_down
     map_grid = mass_assign(tile_array.open, map_grid, 11, [25, 26, 29, 46, 47])
-    debugger
     map_grid[27][11] = tile_array.horizontal
     map_grid[27][11] = tile_array.rTurn_up
     map_grid[45][11] = tile_array.forward_path
@@ -186,6 +199,6 @@ function placePathways(tile_array, map_grid){
 
     // row 9
 
-
+    //debugger
     return map_grid
 }

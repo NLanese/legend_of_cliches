@@ -1,6 +1,7 @@
 // FUNCTION Imports
 import changeDirection from "../../helpers/map_helpers/changeDirection"
 import renderForest from "../../helpers/map_helpers/assignForestTiles"
+import create_default_grid from "../../helpers/map_helpers/create_default_tiles"
 
 // IMAGE imports and TILE TYPE DECLARATION
 import { allImages } from "../../helpers/image_helpers/getImage"
@@ -20,18 +21,8 @@ const fourway =  {nametype: "Path", img: allImages.forest.pathways.fourway, walk
 const horizontal =  {nametype: "Path", img: allImages.forest.pathways.horizontal, walkable: true, discovered: false, inv_item: "N/A", inv_efect: "N/A",  occupied: false, occupied_by: "N/A"}
 const rTurn_down =  {nametype: "Path", img: allImages.forest.pathways.turnRight, walkable: true, discovered: false, inv_item: "N/A", inv_efect: "N/A",  occupied: false, occupied_by: "N/A"}
 const lTurn_down = {nametype: "Path", img: allImages.forest.pathways.turnLeft, walkable: true, discovered: false, inv_item: "N/A", inv_efect: "N/A",  occupied: false, occupied_by: "N/A"}
+const open = {nametype: "Path", img: allImages.forest.pathways.open, walkable: true, discovered: false, inv_item: "N/A", inv_efect: "N/A",  occupied: false, occupied_by: "N/A"}
 
-const tile_array = {fullTrees: fullTrees, leftTrees: leftTrees, rightTrees: rightTrees, backTrees: backTrees, frontTrees: frontTrees, RT_treeCorner: RT_treeCorner, RB_treeCorner: RB_treeCorner, LT_treeCorner: LT_treeCorner, LB_treeCorner: LB_treeCorner, forward_path: forward_path, fork_down: fork_down, fork_up: fork_up, fourway: fourway, horizontal: horizontal, rTurn_down: rTurn_down, lTurn_down: lTurn_down}
-
-
-
-
-
-// This function will generate the 50x200 map 
-// Every tile will default to an object that looks like the following..
-
-    // {nametype: "Tree" img: trees_full, walkable: false, discovered: false, inv_item: "N/A", inv_effect: "N/A", occupied: false, occupied_by: "N/A"}
-    
         // nametype will be a string that labels the tile
         // img will dictate what image is shown
         // walkable determines if the player can go on this tile
@@ -40,22 +31,20 @@ const tile_array = {fullTrees: fullTrees, leftTrees: leftTrees, rightTrees: righ
         // inv_effect will be the effect if the space is interacted by a player in possesion of inv_item
         // occupied will be true if a player or enemy or object is on this space
         // occupied_by will be a player, object, or enemey object
-function generateGrid(){
-    var mapGrid = new Array(50)
-    for (let i = 0; i < 51; i++){
-        mapGrid[i] = new Array(200)
-        for (let j = 0; j < 201; j++){
-            mapGrid[i][j] = fullTrees
-        }
-    }
+
+const tile_array = {fullTrees: fullTrees, leftTrees: leftTrees, rightTrees: rightTrees, backTrees: backTrees, frontTrees: frontTrees, RT_treeCorner: RT_treeCorner, RB_treeCorner: RB_treeCorner, LT_treeCorner: LT_treeCorner, LB_treeCorner: LB_treeCorner, forward_path: forward_path, fork_down: fork_down, fork_up: fork_up, fourway: fourway, horizontal: horizontal, rTurn_down: rTurn_down, lTurn_down: lTurn_down, open: open}
+
+function prepMap(){
+    let  mapGrid = create_default_grid(fullTrees, 50, 200)
     mapGrid = renderForest(tile_array, mapGrid)
     return mapGrid
 }
 
 
+
 export default function manageForestMap(
     state= {
-        map_grid: generateGrid(),                       // Look above for what generateGrid does. This renders the map
+        map_grid: prepMap(),                       // Look above for what generateGrid does. This renders the map
         player_pos: "(9,5)"                             // This will keep track of which space the player is on. It starts at the x = 9 y = 5 
 
       //  enemies: 
@@ -67,8 +56,9 @@ export default function manageForestMap(
             // change the player_pos to reflect the new location
             // This will use the changeDirection function from 
             return {...state, player_pos: changeDirection(action.direction, state.player_pos, state.map_grid)}
-            default:
-                return state
+
+        default:
+            return state
             
         }
     }
