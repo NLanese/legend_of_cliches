@@ -21,7 +21,6 @@ class App extends Component{
   render(){
     return(
       <div className="Main_App_Window">
-        
       </div>
     )
   }
