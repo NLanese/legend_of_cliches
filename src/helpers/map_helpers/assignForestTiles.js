@@ -28,19 +28,32 @@ function renderTrees(tile_array, map_grid){
             if (i != 0){
                 left = map_grid[i - 1][j]
             }
-            if (i != 51){
+            if (i != 50){
+                console.log(`${i}, ${j}`)
                 right = map_grid[i + 1][j]
             }
             if (j != 0){
                 up = map_grid[i][j - 1]
             }
-            if (j != 201){
+            if (j != 200){
                 down = map_grid[i][j + 1]
             }
             let tile = map_grid[i][j]
+
+
+            if (up == undefined || left == undefined || right == undefined || down == undefined || tile == undefined){
+                console.log("We got some weird shizz going on")
+                console.log(`(${i},${j})`)
+                console.log("Left: " + left)
+                console.log("Right: " + right)
+                console.log("Up: " + up)
+                console.log("Down: " + down)
+            }
+
+
             // makes sure tile is a tree tile 
             if (tile.nametype == "Tree"){
-                debugger
+
                 // if the tile is surrounded by trees on all four directions
                 if (left.nametype == "Tree" && right.nametype == "Tree" && up.nametype == "Tree" && down.nametype == "Tree"){
                     tile = tile_array.fullTrees
@@ -186,12 +199,12 @@ function placePathways(tile_array, map_grid){
     map_grid[11][11] = tile_array.lTurn_down
     map_grid = mass_assign(tile_array.open, map_grid, 11, [25, 26, 29, 46, 47])
     map_grid[27][11] = tile_array.horizontal
-    map_grid[27][11] = tile_array.rTurn_up
     map_grid[45][11] = tile_array.forward_path
 
     // row 7 - COMPLETE
+    map_grid[27][12] = tile_array.rTurn_up
     map_grid = mass_assign(tile_array.forward_path, map_grid, 12, [5, 11, 45])
-    map_grid = mass_assign(tile_array.open, map_grid, 12, [6, 7, 8, 9, 10, 27, 28, 29, 39, 40, 46])
+    map_grid = mass_assign(tile_array.open, map_grid, 12, [6, 7, 8, 9, 10, 28, 29, 39, 40, 46])
 
     // row 8 - COMPLETE
     map_grid = mass_assign(tile_array.open, map_grid, 13, [4, 6, 7, 8, 9, 10, 27, 38, 39, 40, 41, 42, 43, 44, 46])

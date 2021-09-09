@@ -20,7 +20,9 @@ const fork_up =  {nametype: "Path", img: allImages.forest.pathways.fork_up, walk
 const fourway =  {nametype: "Path", img: allImages.forest.pathways.fourway, walkable: true, discovered: false, inv_item: "N/A", inv_efect: "N/A",  occupied: false, occupied_by: "N/A"}
 const horizontal =  {nametype: "Path", img: allImages.forest.pathways.horizontal, walkable: true, discovered: false, inv_item: "N/A", inv_efect: "N/A",  occupied: false, occupied_by: "N/A"}
 const rTurn_down =  {nametype: "Path", img: allImages.forest.pathways.turnRight, walkable: true, discovered: false, inv_item: "N/A", inv_efect: "N/A",  occupied: false, occupied_by: "N/A"}
+const rTurn_up =  {nametype: "Path", img: allImages.forest.pathways.turnRightUp, walkable: true, discovered: false, inv_item: "N/A", inv_efect: "N/A",  occupied: false, occupied_by: "N/A"}
 const lTurn_down = {nametype: "Path", img: allImages.forest.pathways.turnLeft, walkable: true, discovered: false, inv_item: "N/A", inv_efect: "N/A",  occupied: false, occupied_by: "N/A"}
+const lTurn_up = {nametype: "Path", img: allImages.forest.pathways.turnLeftUp, walkable: true, discovered: false, inv_item: "N/A", inv_efect: "N/A",  occupied: false, occupied_by: "N/A"}
 const open = {nametype: "Path", img: allImages.forest.pathways.open, walkable: true, discovered: false, inv_item: "N/A", inv_efect: "N/A",  occupied: false, occupied_by: "N/A"}
 
         // nametype will be a string that labels the tile
@@ -32,7 +34,7 @@ const open = {nametype: "Path", img: allImages.forest.pathways.open, walkable: t
         // occupied will be true if a player or enemy or object is on this space
         // occupied_by will be a player, object, or enemey object
 
-const tile_array = {fullTrees: fullTrees, leftTrees: leftTrees, rightTrees: rightTrees, backTrees: backTrees, frontTrees: frontTrees, RT_treeCorner: RT_treeCorner, RB_treeCorner: RB_treeCorner, LT_treeCorner: LT_treeCorner, LB_treeCorner: LB_treeCorner, forward_path: forward_path, fork_down: fork_down, fork_up: fork_up, fourway: fourway, horizontal: horizontal, rTurn_down: rTurn_down, lTurn_down: lTurn_down, open: open}
+const tile_array = {fullTrees: fullTrees, leftTrees: leftTrees, rightTrees: rightTrees, backTrees: backTrees, frontTrees: frontTrees, RT_treeCorner: RT_treeCorner, RB_treeCorner: RB_treeCorner, LT_treeCorner: LT_treeCorner, LB_treeCorner: LB_treeCorner, forward_path: forward_path, fork_down: fork_down, fork_up: fork_up, fourway: fourway, horizontal: horizontal, rTurn_down: rTurn_down, lTurn_down: lTurn_down, rTurn_up: rTurn_up, lTurn_up: lTurn_up, open: open}
 
 function prepMap(){
     let  mapGrid = create_default_grid(fullTrees, 50, 200)
