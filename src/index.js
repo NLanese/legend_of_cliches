@@ -7,6 +7,7 @@ import { createStore, applyMiddleware, compose } from 'redux';
 import thunk from 'redux-thunk';
 import masterReducer from './reducers/master_reducer';
 
+//  Sets up Store and Debuggers
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose
 const store = createStore(masterReducer, composeEnhancers(applyMiddleware(thunk)))
 
