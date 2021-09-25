@@ -1,0 +1,50 @@
+.Welcome_Screen{
+    position: absolute;
+    top: 5%;
+    left: 2%;
+    width: 96%;
+    height: 90%
+}
+
+.Welcome_Menu{
+    position: absolute;
+    width: 20%;
+    left: 30%;
+    height: 44%;
+    top: 30%;
+    background-color: cadetblue;
+}
+
+.Welcome_Option{
+    border-color: goldenrod;
+    color: darkgoldenrod;
+    background-color: darkslategrey;
+    border-style: ridge;
+    border-width: 3px;
+    padding: 6px;
+    padding-bottom: 10px;
+    font-size: 20pt;
+    text-align: center;
+    margin-top: 14%;
+    margin-left: 10%;
+    margin-right: 10%;
+    align-self: center;
+}
+
+
+
+#WelcomeBanner{
+    position: absolute;
+    border-style: groove;
+    padding: 1%;
+    border-width: 7px;
+    border-color: goldenrod;
+    top: 0%;
+    left: 2%;
+}
+
+#BigOlText{
+    font-size: 36pt;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    color: darkgoldenrod
+}

@@ -4,6 +4,9 @@ import ForestImages from "./getForestImages";
 let forest = new ForestImages()
 
 export const allImages = {
+    classSelection: {
+        mageCardImage: 
+    },
     forest: {
         pathways: {
             fork: forest.fork_path(),
@@ -35,6 +38,5 @@ export const allImages = {
         }
     },
     towns: {
-
     },
 }

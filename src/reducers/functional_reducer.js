@@ -4,8 +4,10 @@ export default function manageFunctions(state ={
 
     inWelcome: true,            // True at first. This is what tells App to render the Welcome.js component
     inLogin: false,             // True if "Resume Journey" is selected from the Welcome.js component 
+    inNew: false,               // True if "New Story" is selected from the Welcome.js component
 
     inGame: false,              // True if a new game is started or a journey is resumed
+    isLoading: false,           // True if the game is currently loading
 
     inGrid: false,              // True if the player is in the game world, not in a fight, inventory, map, or other view
     inMap: false,               // True if the user selected their map
@@ -16,14 +18,19 @@ export default function manageFunctions(state ={
 action){
     switch(action.type){
 
-        // THIS CASE ALSO EXISTS INSIDE OF THE PLAYER REDUCER
-        // {action: "START_NEW_GAME", payload: {player_id: xxxxxx, player: {<object with all player details>}
-        case("START_NEW_GAME") :
-            return {...state, inWelcome: false, inGame: true, player_id: action.payload.player_id}
+        // {type: "LOADING"}
+        case("LOADING"):
+            return {...state, inWelcome: false, inLogin: false, inNew: false, inGame: false, isLoading: true}
 
         // THIS CASE ALSO EXISTS INSIDE OF THE PLAYER REDUCER
-        // {action: "START_NEW_GAME", payload: {player_id: xxxxxx, player: {<object with all player details>}
-        case("LOGIN_TO_GAME")
+        // {type: "START_NEW_GAME", payload: {player_id: xxxxxx, character_selected}
+        case("START_NEW_GAME"):
+            return {...state, inWelcome: false, inNew: true, player_id: action.payload.player_id}
+
+        // THIS CASE ALSO EXISTS INSIDE OF THE PLAYER REDUCER
+        // {type: "START_NEW_GAME", payload: {player_id: xxxxxx, player: {<object with all player details>}
+        case("LOGIN_TO_GAME"):
+            return {...state, inWelcome: false, inGame: true, player_id: action.payload.player_id}
 
 
         default:
