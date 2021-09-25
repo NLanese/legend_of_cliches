@@ -29,7 +29,7 @@ class ClassCard extends Component {
         if (this.state.upperCardSetting == "Image"){
             return(
                 <div id="ClassCardImage">
-                    {/* this will be an image name recieved from the props. This will then be inputted into an Image helper */}
+                    {/* this will be an image (img) name recieved from the props. This will then be inputted into an Image helper */}
                     {/* use a getImage value to insert here */}
                 </div>
             )
