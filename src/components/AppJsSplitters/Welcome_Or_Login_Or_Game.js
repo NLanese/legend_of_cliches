@@ -3,6 +3,7 @@ import React, {Component} from 'react';
 import Welcome from './Welcome';
 import Login from './Login';
 import GameWindow from '../MainScreen/GameWindow';
+import NewGame from './NewGame/NewGame'
 
 
 const mapStateToProps = (state) => {
@@ -23,14 +24,25 @@ class WelcomeOrLoginOrGame extends Component{
             )
         }
         else if (props.functions.inLogin){
-            <div>
-                <Login />
-            </div>
+            return(
+                <div>
+                    <Login />
+                </div>
+            )
+        }
+        else if (props.functions.inNew){
+            return(
+                <div>
+                    <NewGame />
+                </div>
+            )
         }
         else if (props.functions.inGame){
-            <div>
-                <GameWindow />
-            </div>
+            return(
+                <div>
+                    <GameWindow />
+                </div>
+            )
         }
     }
 

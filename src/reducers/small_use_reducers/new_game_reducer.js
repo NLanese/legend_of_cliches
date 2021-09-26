@@ -1,6 +1,14 @@
 export default function manageNewGame(state ={
-
+    classSelected: false,
+    inClassSelection: false,
 },
 action){
+    switch(action.type){
 
+        // THIS CASE ALSO EXISTS INSIDE OF THE NEW GAME REDUCER
+        // {type: "SET_UP_NEW_GAME"}
+        case("SET_UP_NEW_GAME"):
+            return {...state, inClassSelection: true}
+
+    }
 }

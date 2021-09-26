@@ -22,6 +22,11 @@ action){
         case("LOADING"):
             return {...state, inWelcome: false, inLogin: false, inNew: false, inGame: false, isLoading: true}
 
+        // THIS CASE ALSO EXISTS INSIDE OF THE NEW GAME REDUCER
+        // {type: "SET_UP_NEW_GAME"}
+        case("SET_UP_NEW_GAME"):
+            return {...state, inWelcome: false, inNew: true}
+
         // THIS CASE ALSO EXISTS INSIDE OF THE PLAYER REDUCER
         // {type: "START_NEW_GAME", payload: {player_id: xxxxxx, character_selected}
         case("START_NEW_GAME"):
