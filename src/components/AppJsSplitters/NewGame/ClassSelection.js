@@ -10,15 +10,15 @@ class ClassSelection extends Component {
             <div id="ClassSelection">
 
                 <div id="MageClassCard">
-                    <ClassCard img="mage"/>
+                    <ClassCard classType="Mage"/>
                 </div>
 
                 <div id="Paladin">
-                    <ClassCard img="paladin" />
+                    <ClassCard classType="Paladin" />
                 </div>
 
                 <div id="Assassin">
-                    <ClassCard img="assassin" />
+                    <ClassCard classType="Assassin" />
                 </div>
 
             </div>

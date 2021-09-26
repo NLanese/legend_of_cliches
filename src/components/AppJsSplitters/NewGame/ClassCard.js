@@ -25,12 +25,31 @@ class ClassCard extends Component {
         })
     }
 
+    renderStats = (classCardObj) => {
+        return(
+            <div>
+                <h1 id="ClassTypeNameOnCard">{classCardObj.className}</h1>
+                <h1 className="CardHeaders">Bio</h1>
+                <div id="CardBio">{classCardObj.bio}</div>
+                <h1 className="CardHeaders">Stats</h1>
+                <h3 className="CardStats_1" id="atk_1">{classCardObj.atk}</h3>
+            </div>
+        )
+    }
+
     renderUpperCard = () => {
         if (this.state.upperCardSetting == "Image"){
             return(
                 <div id="ClassCardImage">
-                    {/* this will be an image (img) name recieved from the props. This will then be inputted into an Image helper */}
+                    {/* this will be a (classType) name recieved from the props. This will then be inputted into an Image helper */}
                     {/* use a getImage value to insert here */}
+                </div>
+            )
+        }
+        else if (this.state.upperCardSetting == "Stats"){
+            return(
+                <div id="ClassCardStatsAndBio">
+                    {this.renderStats(this.props.classType)}
                 </div>
             )
         }
