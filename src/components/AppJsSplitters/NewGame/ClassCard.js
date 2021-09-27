@@ -4,7 +4,7 @@ import getImage from '../../../helpers/image_helpers/getImage'
 import determineStats from '../../../helpers/new_game_helpers/starter_helper'; // Called on line 53 to render the Stats section of the class Card
 
 
-const mapDispatchToProps = (dispatch) => {
+const mapStateToProps = (state) => {
     return({
         
     })
@@ -97,3 +97,8 @@ class ClassCard extends Component {
     }
 
 }
+
+export default connect(
+    mapStateToProps, 
+    mapDispatchToProps
+)(ClassCard)
