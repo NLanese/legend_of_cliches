@@ -1,6 +1,19 @@
 import { connect } from 'react-redux';
 import React, {Component} from 'react';
 import getImage from '../../../helpers/image_helpers/getImage'
+import determineStats from '../../../helpers/new_game_helpers/starter_helper'; // Called on line 53 to render the Stats section of the class Card
+
+
+const mapDispatchToProps = (dispatch) => {
+    return({
+        
+    })
+}
+const mapDispatchToProps = (dispatch) => {
+    return({
+        selectClass: (classType) => dispatch({type: "CLASS_SELECTED", payload: classType})
+    })
+}
 
 
 class ClassCard extends Component {
@@ -12,6 +25,7 @@ class ClassCard extends Component {
         })
     }
 
+    // Changes the Card's state to change it from Image to Stats
     flipCard = () => {
         let newWord = "Error"
         if (this.state.upperCardSetting == "Image"){
@@ -25,6 +39,7 @@ class ClassCard extends Component {
         })
     }
 
+    // Takes a Class Stat Object and turns it into a series of divs to be more easily organized
     renderStats = (classCardObj) => {
         return(
             <div>
@@ -33,10 +48,16 @@ class ClassCard extends Component {
                 <div id="CardBio">{classCardObj.bio}</div>
                 <h1 className="CardHeaders">Stats</h1>
                 <h3 className="CardStats_1" id="atk_1">{classCardObj.atk}</h3>
+                <h3 className="CardStats_1" id="sAtk_1">{classCardObj.sAtk}</h3>
+                <h3 className="CardStats_1" id="def_1">{classCardObj.def}</h3>
+                <h3 className="CardStats_1" id="sDef_1">{classCardObj.sDef}</h3>
+                <h3 className="CardStats_1" id="spd_1">{classCardObj.spd}</h3>
+                <h3 className="CardStats_1" id="hp_1">{classCardObj.atk}</h3>
             </div>
         )
     }
 
+    // Handles whether to render the stats or image
     renderUpperCard = () => {
         if (this.state.upperCardSetting == "Image"){
             return(
@@ -49,10 +70,15 @@ class ClassCard extends Component {
         else if (this.state.upperCardSetting == "Stats"){
             return(
                 <div id="ClassCardStatsAndBio">
-                    {this.renderStats(this.props.classType)}
+                    {this.renderStats(determineStats(this.props.classType))}
                 </div>
             )
         }
+    }
+
+    selectHero = (classType) => {
+        preventDefault()
+        selectClass(classType)
     }
 
     render(){
@@ -64,7 +90,7 @@ class ClassCard extends Component {
                 </div>
                 {/* This will be a selection button */}
                 <div className="Class_Card_Bottom">
-
+                    <button id="ClassSelectButton" onClick={() => this.selectHero(this.props.classType)}>Select Class</button>
                 </div>
             </div>
         )

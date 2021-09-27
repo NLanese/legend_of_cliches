@@ -10,7 +10,9 @@ const mapStateToProps = (state) => {
     return({
         functions: state.functions
     })
-
+}
+const mapDispatchToProps = (dispatch) => {
+    return({    })
 }
 
 class WelcomeOrLoginOrGame extends Component{
