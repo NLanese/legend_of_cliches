@@ -5,7 +5,7 @@ let forest = new ForestImages()
 
 export const allImages = {
     classSelection: {
-        mageCardImage: 
+        // mageCardImage: 
     },
     forest: {
         pathways: {

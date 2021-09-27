@@ -6,12 +6,12 @@ import determineStats from '../../../helpers/new_game_helpers/starter_helper'; /
 
 const mapStateToProps = (state) => {
     return({
-        
+        empty: null
     })
 }
 const mapDispatchToProps = (dispatch) => {
     return({
-        selectClass: (classType) => dispatch({type: "CLASS_SELECTED", payload: classType})
+        makeSelection: (classType) => dispatch({type: "CLASS_SELECTED", payload: classType})
     })
 }
 
@@ -76,9 +76,9 @@ class ClassCard extends Component {
         }
     }
 
-    selectHero = (classType) => {
-        preventDefault()
-        selectClass(classType)
+    selectHero = (event, classType) => {
+        event.preventDefault()
+        this.props.makeSelection(classType)
     }
 
     render(){
@@ -90,7 +90,7 @@ class ClassCard extends Component {
                 </div>
                 {/* This will be a selection button */}
                 <div className="Class_Card_Bottom">
-                    <button id="ClassSelectButton" onClick={() => this.selectHero(this.props.classType)}>Select Class</button>
+                    <button id="ClassSelectButton" onClick={(event) => this.selectHero(event, this.props.classType)}>Select Class</button>
                 </div>
             </div>
         )

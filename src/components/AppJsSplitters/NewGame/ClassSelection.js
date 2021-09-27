@@ -2,7 +2,7 @@ import { connect } from 'react-redux';
 import React, {Component} from 'react';
 import ClassCard from './ClassCard'
 
-class ClassSelection extends Component {
+export default class ClassSelection extends Component {
 
 
     render(){

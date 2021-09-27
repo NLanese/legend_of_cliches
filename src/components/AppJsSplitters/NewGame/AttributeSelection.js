@@ -25,6 +25,14 @@ class AttributeSelection extends Component {
             hp: this.props.newGame.currentPlayerObj.hp
         }
     }
+
+    render(){
+        return(
+            <div id="AttributeSelection">
+                
+            </div>
+        )
+    }
 }
 export default connect(
     mapStateToProps,

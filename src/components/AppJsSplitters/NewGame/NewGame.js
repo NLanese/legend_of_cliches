@@ -41,3 +41,7 @@ class NewGame extends Component {
     }
 
 }
+
+export default connect(
+    mapStateToProps
+)(NewGame)

@@ -26,7 +26,7 @@ export default function determineStats(name){
 
         case("Assassin"):
             return({
-                class_name: "Assassin"
+                class_name: "Assassin",
                 bio: " - DO THIS LATER - ",
                 atk: 11,
                 sAtk: 9,
