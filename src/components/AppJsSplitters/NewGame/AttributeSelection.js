@@ -11,7 +11,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
     return({
-
+        completeSelection: (playerObj) => dispatch({type: "SUBMIT_FOR_REVIEW", payload: playerObj })
     })
 }
 
@@ -28,10 +28,20 @@ class AttributeSelection extends Component {
         }
     }
 
+    changeStatAdd = () => {
+
+    }
+
+    completeAtrSel = () => {
+        let playerObj = {
+            atk: this.state.atk
+        }
+    }
+
     renderContinueButton = (pointsRemaining) => {
         if (pointsRemaining == 0){
             return(
-                <div id="AllAssigned" className="StatCompleteButton">
+                <div id="AllAssigned" className="StatCompleteButton" onClick={this.completeAtrSel}>
                     Continue
                 </div>
             )
@@ -48,23 +58,26 @@ class AttributeSelection extends Component {
     render(){
         return(
             <div id="AttributeSelection">
+                <div id='AttributeSelectionHeading'>
+                    You have {this.props.levelUp.pointsRemaining} Attribute Points left to assign!
+                </div>
                 <div id="atkAtr1" className="StatAreaAttrSel">
-                    <StatUpgradePanel value={this.state.atk} isHealth={false}/>
+                    <StatUpgradePanel name={"atk"} value={this.state.atk} isHealth={false}/>
                 </div>
                 <div id="sAtkAtr1" className="StatAreaAttrSel">
-                    <StatUpgradePanel value={this.state.sAtk} isHealth={false}/>
+                    <StatUpgradePanel name={"sAtk"} value={this.state.sAtk} isHealth={false}/>
                 </div>
                 <div id="DefAtr1" className="StatAreaAttrSel">
-                    <StatUpgradePanel value={this.state.def} isHealth={false}/>
+                    <StatUpgradePanel name={"def"} value={this.state.def} isHealth={false}/>
                 </div>
                 <div id="sDefAtr1" className="StatAreaAttrSel">
-                    <StatUpgradePanel value={this.state.sDef} isHealth={false}/>
+                    <StatUpgradePanel name={"sDef"} value={this.state.sDef} isHealth={false}/>
                 </div>
                 <div id="spdAtr1" className="StatAreaAttrSel">
-                    <StatUpgradePanel value={this.state.spd} isHealth={false}/>
+                    <StatUpgradePanel name={"spd"} value={this.state.spd} isHealth={false}/>
                 </div>
                 <div id="hpAtr1" className="StatAreaAttrSel">
-                    <StatUpgradePanel value={this.state.hp} isHealth={true}/>
+                    <StatUpgradePanel name={"hp"} value={this.state.hp} isHealth={true}/>
                 </div>
             </div>
         )

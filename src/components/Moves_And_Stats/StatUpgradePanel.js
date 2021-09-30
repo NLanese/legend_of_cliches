@@ -17,7 +17,7 @@ const mapDispatchToProps = (dispatch) => {
 }
 
 class StatUpgradePanel extends Component {
-// Gets a prop passed down as "value" a single integer
+// Gets a prop passed down as "value" a single integer. Also gets "name" which will be a a string of the stat's name
     constructor(props){
         super()
         this.state = {
