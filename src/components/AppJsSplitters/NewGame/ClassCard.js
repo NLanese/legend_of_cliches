@@ -4,11 +4,6 @@ import getImage from '../../../helpers/image_helpers/getImage'
 import determineStats from '../../../helpers/new_game_helpers/starter_helper'; // Called on line 53 to render the Stats section of the class Card
 
 
-const mapStateToProps = (state) => {
-    return({
-        empty: null
-    })
-}
 const mapDispatchToProps = (dispatch) => {
     return({
         makeSelection: (classType) => dispatch({type: "CLASS_SELECTED", payload: classType})
@@ -99,6 +94,6 @@ class ClassCard extends Component {
 }
 
 export default connect(
-    mapStateToProps, 
+    null, 
     mapDispatchToProps
 )(ClassCard)

@@ -1,11 +1,12 @@
 import { connect } from 'react-redux';
 import React, {Component} from 'react';
-import howManyPoints from '../../helpers/Moves_And_Stats_Helpers/AttributeUpgradeLevelHelper';
+import './css/StatUpgradePanel.css'
 
 const mapStateToProps = (state) => {
     return({
         newGame: state.newGame,
-        player: state.player
+        player: state.player,
+        levelUp: state.levelUp
     })
 }
 
@@ -17,11 +18,13 @@ const mapDispatchToProps = (dispatch) => {
 
 class StatUpgradePanel extends Component {
 // Gets a prop passed down as "value" a single integer
-    constructor(){
+    constructor(props){
         super()
         this.state = {
-            value: this.props.value,                            // Passed down from Parent Component
-            pointsToAssign: howManyPoints(this.props.player.level)     // this.props.player.level will be passed down from Master Reducer
+            isHealth: this.props.isHealth,                  // True if the stat is HP. This is because HP upgrading works differently
+            value: this.props.value,                        // Passed down from Parent Component
+            times_increased: 0,                             // Goes up once every tme AddClick is executed. If above 0, goes down 1 every time MinusClick is executed
+            increased_left: props.levelUp.pointsRemaining   // This will be taken from the LevelUp state to make sure you do not go over the allowed points.... shoudn't be needed here, but its a failsafe
         }
     }
 
@@ -33,11 +36,25 @@ class StatUpgradePanel extends Component {
 
     }
 
+    renderStatColor = (state) => {
+        if (state.times_increased > 0){
+            <div id="incStatLvlUp">
+                {state.value}
+            </div>
+        }
+        else{            
+            <div id="regStatLvlUp">
+                {state.value}
+            </div>
+        }
+    }
+
     render(){
         return(
             <div id="Stat_And_Arrows">
                 <div id="StatMinus"></div>
                 <div id="StatValue"></div>
+                {this.renderStatColor(this.state)}
             </div>
         )
     }

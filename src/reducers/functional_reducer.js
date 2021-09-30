@@ -12,6 +12,7 @@ export default function manageFunctions(state ={
     inGrid: false,              // True if the player is in the game world, not in a fight, inventory, map, or other view
     inMap: false,               // True if the user selected their map
     inInv: false,               // True if the user sleected their inventory
+    inLevelUp: false,           // True is the user just leveled up
 
     openedMenu: false,          // True if the user opens their menu. This does not overtake the current component but rather it slides in
 },
