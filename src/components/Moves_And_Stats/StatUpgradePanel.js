@@ -24,15 +24,18 @@ class StatUpgradePanel extends Component {
             isHealth: this.props.isHealth,                  // True if the stat is HP. This is because HP upgrading works differently
             value: this.props.value,                        // Passed down from Parent Component
             times_increased: 0,                             // Goes up once every tme AddClick is executed. If above 0, goes down 1 every time MinusClick is executed
-            increased_left: props.levelUp.pointsRemaining   // This will be taken from the LevelUp state to make sure you do not go over the allowed points.... shoudn't be needed here, but its a failsafe
         }
     }
 
     handleMinusClick = (event) => {
-
+        event.preventDefault()
+        if (this.state.times_increased > 0){
+            this.
+        }
     }
 
     handleAddClick = (event) => {
+        event.preventDefault()
 
     }
 
@@ -52,8 +55,10 @@ class StatUpgradePanel extends Component {
     render(){
         return(
             <div id="Stat_And_Arrows">
-                <div id="StatMinus"></div>
-                <div id="StatValue"></div>
+                {/* this button can only be clicked if the stat has had an increase to it  */}
+                <button id="StatMinus" onClick={event => this.handleMinusClick(event)}> - </button>
+                {/* this button can be clicked as long as levelUp.pointsRemaining is greater than 0 */}
+                <button id="StatValue" onClick={event => this.handleAddClick(event)}> + </button>
                 {this.renderStatColor(this.state)}
             </div>
         )

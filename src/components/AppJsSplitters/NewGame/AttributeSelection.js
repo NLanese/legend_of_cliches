@@ -11,6 +11,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
     return({
+        // This can only be accessed when levelUp.pointsRemaining == 0
         completeSelection: (playerObj) => dispatch({type: "SUBMIT_FOR_REVIEW", payload: playerObj })
     })
 }
@@ -19,12 +20,14 @@ class AttributeSelection extends Component {
     constructor(){
         super()
         this.state = {
-            atk: this.props.newGame.currentPlayerObj.atk,
-            sAtk: this.props.newGame.currentPlayerObj.sAtk,
-            def: this.props.newGame.currentPlayerObj.def,
-            sDef: this.props.newGame.currentPlayerObj.sDef,
-            spd: this.props.newGame.currentPlayerObj.spd,
-            hp: this.props.newGame.currentPlayerObj.hp
+            // Each stat will be the current value (which is assigned to each class by default) 
+            // plus whatever increases have been made
+            atk: this.props.newGame.currentPlayerObj.atk + this.props.levelUp.atk ,
+            sAtk: this.props.newGame.currentPlayerObj.sAtk + this.props.levelUp.sAtk ,
+            def: this.props.newGame.currentPlayerObj.def + this.props.levelUp.def ,
+            sDef: this.props.newGame.currentPlayerObj.sDef + this.props.levelUp.sDef ,
+            spd: this.props.newGame.currentPlayerObj.spd + this.props.levelUp.spd ,
+            hp: this.props.newGame.currentPlayerObj.hp + this.props.levelUp.hp 
         }
     }
 
@@ -39,6 +42,7 @@ class AttributeSelection extends Component {
     }
 
     renderContinueButton = (pointsRemaining) => {
+        // If all points have been spent, the button will appear and be clickable
         if (pointsRemaining == 0){
             return(
                 <div id="AllAssigned" className="StatCompleteButton" onClick={this.completeAtrSel}>
@@ -46,6 +50,7 @@ class AttributeSelection extends Component {
                 </div>
             )
         }
+        // Else, all points haven't been spent, cannot continue or click the button
         else{
             return(
                 <div id="NotAllAssigned" className="StatCompleteButton">
