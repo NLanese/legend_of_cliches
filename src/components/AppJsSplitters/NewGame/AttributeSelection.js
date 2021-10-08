@@ -67,22 +67,22 @@ class AttributeSelection extends Component {
                     You have {this.props.levelUp.pointsRemaining} Attribute Points left to assign!
                 </div>
                 <div id="atkAtr1" className="StatAreaAttrSel">
-                    <StatUpgradePanel name={"atk"} value={this.state.atk} isHealth={false}/>
+                    <StatUpgradePanel name={"atk"} value={this.state.atk}/>
                 </div>
                 <div id="sAtkAtr1" className="StatAreaAttrSel">
-                    <StatUpgradePanel name={"sAtk"} value={this.state.sAtk} isHealth={false}/>
+                    <StatUpgradePanel name={"sAtk"} value={this.state.sAtk}/>
                 </div>
                 <div id="DefAtr1" className="StatAreaAttrSel">
-                    <StatUpgradePanel name={"def"} value={this.state.def} isHealth={false}/>
+                    <StatUpgradePanel name={"def"} value={this.state.def}/>
                 </div>
                 <div id="sDefAtr1" className="StatAreaAttrSel">
-                    <StatUpgradePanel name={"sDef"} value={this.state.sDef} isHealth={false}/>
+                    <StatUpgradePanel name={"sDef"} value={this.state.sDef}/>
                 </div>
                 <div id="spdAtr1" className="StatAreaAttrSel">
-                    <StatUpgradePanel name={"spd"} value={this.state.spd} isHealth={false}/>
+                    <StatUpgradePanel name={"spd"} value={this.state.spd}/>
                 </div>
                 <div id="hpAtr1" className="StatAreaAttrSel">
-                    <StatUpgradePanel name={"hp"} value={this.state.hp} isHealth={true}/>
+                    <StatUpgradePanel name={"hp"} value={this.state.hp}/>
                 </div>
             </div>
         )

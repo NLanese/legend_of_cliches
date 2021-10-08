@@ -12,31 +12,34 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
     return({
-
+        upAttribute: (name) => dispatch({type: "ADD_POINT", payload: name}),
+        downAttribute: (name) => dispatch({type: "MINUS_POINT", payload: name})
     })
 }
 
 class StatUpgradePanel extends Component {
 // Gets a prop passed down as "value" a single integer. Also gets "name" which will be a a string of the stat's name
-    constructor(props){
+    constructorthis(props){
         super()
         this.state = {
-            isHealth: this.props.isHealth,                  // True if the stat is HP. This is because HP upgrading works differently
             value: this.props.value,                        // Passed down from Parent Component
             times_increased: 0,                             // Goes up once every tme AddClick is executed. If above 0, goes down 1 every time MinusClick is executed
+            name: this.props.name
         }
     }
 
-    handleMinusClick = (event) => {
+    handleMinusClick = (event, name) => {
         event.preventDefault()
         if (this.state.times_increased > 0){
-            this.
+            this.props.downAttribute(name)
         }
     }
 
-    handleAddClick = (event) => {
+    handleAddClick = (event, name) => {
         event.preventDefault()
-
+        if (this.props.levelUp.attributePoints > 0){
+            this.props.upAttribute(name)
+        }
     }
 
     renderStatColor = (state) => {
@@ -56,9 +59,9 @@ class StatUpgradePanel extends Component {
         return(
             <div id="Stat_And_Arrows">
                 {/* this button can only be clicked if the stat has had an increase to it  */}
-                <button id="StatMinus" onClick={event => this.handleMinusClick(event)}> - </button>
+                <button id="StatMinus" onClick={(event) => this.handleMinusClick((event, this.state.name))}> - </button>
                 {/* this button can be clicked as long as levelUp.pointsRemaining is greater than 0 */}
-                <button id="StatValue" onClick={event => this.handleAddClick(event)}> + </button>
+                <button id="StatValue" onClick={event => this.handleAddClick(event, this.state.name)}> + </button>
                 {this.renderStatColor(this.state)}
             </div>
         )
