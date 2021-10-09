@@ -6,13 +6,15 @@ const mapStateToProps = (state) => {
 
 }
 const mapDispatchToProps = (dispatch) => {
-    
+    return({
+        startNewGame: () => dispatch({type: "SET_UP_NEW_GAME"})
+    })
 }
 
 class Welcome extends Component{
 
     startNewGame = () => {
-
+        this.props.startNewGame()
     }
 
     render(){
@@ -21,7 +23,7 @@ class Welcome extends Component{
                 <div id="WelcomeBackground"></div>
                 <h1 id="WelcomeBanner">Welcome to <div id="BigOlText">Legend of Cliches </div></h1>
                 <div className="Welcome_Menu">
-                    <div className="Welcome_Option" id="New">
+                    <div className="Welcome_Option" id="New" onClick={this.startNewGame}>
                          - New Story -
                     </div>
                     <div className="Welcome_Option" id="Load">

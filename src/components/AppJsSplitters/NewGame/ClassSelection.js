@@ -10,15 +10,15 @@ export default class ClassSelection extends Component {
             <div id="ClassSelection">
 
                 <div id="MageClassCard">
-                    <ClassCard classType="Mage"/>
+                    <ClassCard classType={"Mage"}/>
                 </div>
 
                 <div id="Paladin">
-                    <ClassCard classType="Paladin" />
+                    <ClassCard classType={"Paladin"} />
                 </div>
 
                 <div id="Assassin">
-                    <ClassCard classType="Assassin" />
+                    <ClassCard classType={"Assassin"} />
                 </div>
 
             </div>

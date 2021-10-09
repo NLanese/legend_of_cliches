@@ -1,0 +1,6 @@
+.Welcome_Or_Login_Or_Game_Window{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: -100%;
+}

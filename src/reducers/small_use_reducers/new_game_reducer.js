@@ -17,5 +17,10 @@ action){
         case("CLASS_SELECTED"):
             return {...state, inClassSelection: false, classSelected: true, inAttributes: true, currentPlayerObj: action.payload}
 
+
+
+            
+        default:
+            return {...state}
     }
 }

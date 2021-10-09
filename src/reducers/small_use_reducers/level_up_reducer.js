@@ -48,6 +48,8 @@ export default function manageLevelUp(state = {
                 return {...state, pointsRemaining: state.pointsRemaining - 1, hpInc: state.hp + 5}
             }
 
+        default:
+            return {...state}
     }
 
 }

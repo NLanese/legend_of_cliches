@@ -29,7 +29,6 @@ function renderTrees(tile_array, map_grid){
                 left = map_grid[i - 1][j]
             }
             if (i != 50){
-                console.log(`${i}, ${j}`)
                 right = map_grid[i + 1][j]
             }
             if (j != 0){

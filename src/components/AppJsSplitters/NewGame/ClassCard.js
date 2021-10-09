@@ -13,20 +13,22 @@ const mapDispatchToProps = (dispatch) => {
 
 class ClassCard extends Component {
 
-    constructor(){
-        super()
-        this.setState({
+    constructor(props){
+        super(props)
+        this.state = {
             upperCardSetting: "Image",      // This will either be set to Image or Stats and will dictate what upperCardRender will return
-        })
+            classType: props.classType      // This is used to fetch images and determineStats
+        }
+        console.log(this.state)
     }
 
     // Changes the Card's state to change it from Image to Stats
-    flipCard = () => {
+    flipCard = (state) => {
         let newWord = "Error"
-        if (this.state.upperCardSetting == "Image"){
+        if (state.upperCardSetting == "Image"){
             newWord = "Stats"
         }
-        else if (this.state.upperCardSetting == "Stats"){
+        else if (state.upperCardSetting == "Stats"){
             newWord = "Image"
         }
         this.setState({
@@ -53,8 +55,9 @@ class ClassCard extends Component {
     }
 
     // Handles whether to render the stats or image
-    renderUpperCard = () => {
-        if (this.state.upperCardSetting == "Image"){
+    renderUpperCard = (state) => {
+        console.log(state)
+        if (state.upperCardSetting == "Image"){
             return(
                 <div id="ClassCardImage">
                     {/* this will be a (classType) name recieved from the props. This will then be inputted into an Image helper */}
@@ -62,10 +65,10 @@ class ClassCard extends Component {
                 </div>
             )
         }
-        else if (this.state.upperCardSetting == "Stats"){
+        else if (state.upperCardSetting == "Stats"){
             return(
                 <div id="ClassCardStatsAndBio">
-                    {this.renderStats(determineStats(this.props.classType))}
+                    {this.renderStats(determineStats(state.classType))}
                 </div>
             )
         }
@@ -77,11 +80,12 @@ class ClassCard extends Component {
     }
 
     render(){
+        console.log(this.state)
         return(
             <div className="Class_Card">
                 {/* This is the top 70% of the card. It will be an image with a name, and when clicked will rotate toa bio and default stats */}
                 <div className="Class_Card_Upper" id="ClassCardImage">
-                    {this.renderUpperCard()}
+                    {this.renderUpperCard(this.state)}
                 </div>
                 {/* This will be a selection button */}
                 <div className="Class_Card_Bottom">

@@ -11,9 +11,9 @@ const mapStateToProps = (state) => {
 
 class NewGame extends Component {
 
-    which_new_game_segment = () => {
+    which_new_game_segment = (props) => {
         // This is the first "step" in creating a new game
-        if (this.props.newGame.inClassSelection){
+        if (props.newGame.inClassSelection){
             return(
                 <div>
                     <ClassSelection />
@@ -22,7 +22,7 @@ class NewGame extends Component {
             )
         }
         // This is the second "step" in creating a new game
-        else if (this.props.newGame.inAttributes){
+        else if (props.newGame.inAttributes){
             return(
                 <div>
                     <AttributeSelection />
@@ -35,7 +35,7 @@ class NewGame extends Component {
     render(){
         return(
             <div>
-                {this.which_new_game_segment}
+                {this.which_new_game_segment(this.props)}
             </div>
         )
     }

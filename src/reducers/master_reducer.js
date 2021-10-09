@@ -10,7 +10,7 @@ const masterReducer = combineReducers({
     functions: manageFunctions,
 
     newGame: manageNewGame,
-    levelUp: manageLevelUp
+    levelUp: manageLevelUp,
 
     forest_world: manageForestMap
  //   desert_world: manageDesertMap
