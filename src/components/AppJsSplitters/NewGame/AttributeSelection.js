@@ -84,6 +84,9 @@ class AttributeSelection extends Component {
                 <div id="hpAtr1" className="StatAreaAttrSel">
                     <StatUpgradePanel name={"hp"} value={this.state.hp}/>
                 </div>
+                <div id="ContinueAtrSel">
+                    {this.renderContinueButton(this.props.levelUp.pointsRemaining)}
+                </div>
             </div>
         )
     }
