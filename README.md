@@ -1,3 +1,24 @@
+# Legend_Of_Cliches In-Browser Game
+
+This project will be hosted by a React/Redux structure and supported with a Ruby on Rails backend. Upon running the file using 'npm start,' a new window will open in your default browser, prompting the user to either...
+
+Start a New Game
+
+Load a Saved game (by logging in using either OAuth or signing in manually using the has_secure_password attribute of rails)
+
+or
+
+Check the Options and Settings of the game
+
+Once started, the game will be a 2D top-down RPG. Users can create an avatar based off of one of three classes, and then customize it to their own wishes as each class will have a customizable attributes such as attack, defense, special attack, special defense, speed, and health; they will also be able to have four active attacks out of over 80 total made attack objects. 
+Each section of the game, or each "map," will be rendered by a massive two-dimensional array, with each element containing an object. This object will contain an image that will be rendered in a div, as well as details about the space such as whether its occupied by a player, enemy, NPC, or obstacle. 
+This two dimensional array will then have each of its elements mapped out to a div in such a manner that [0,1]'s object will be placed in the div to the top left of the grid and [200, 50]'s object will be placed in the bottom right. The images in each div/object will work as such so that [0,1] and [0,2] are right next to each other with no whitespace in between.
+
+
+
+
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
