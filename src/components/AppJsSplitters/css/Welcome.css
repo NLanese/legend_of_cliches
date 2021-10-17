@@ -9,10 +9,14 @@
 .Welcome_Menu{
     position: absolute;
     width: 20%;
-    left: 30%;
+    left: 40%;
     height: 44%;
     top: 30%;
     background-color: cadetblue;
+    border-color: goldenrod;
+    border-style: groove;
+    padding: 1%;
+    border-width: 7px;
 }
 
 .Welcome_Option{
@@ -24,12 +28,24 @@
     border-width: 3px;
     padding: 6px;
     padding-bottom: 10px;
-    font-size: 20pt;
+    font-size: 18pt;
     text-align: center;
-    margin-top: 14%;
-    margin-left: 10%;
-    margin-right: 10%;
     align-self: center;
+}
+
+#New{
+    top: 10%;
+    left: 20.5%;
+}
+
+#Load{
+    top: 40%;
+    left: 5.5%;
+}
+
+#Info{
+    top: 70%;
+    left: 27.5%
 }
 
 
@@ -49,3 +65,4 @@
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
     color: darkgoldenrod
 }
+
