@@ -1,4 +1,4 @@
 .Main_App_Window{
-    width: 100%;
+    width: fit-content;
     height: 100%;
 }

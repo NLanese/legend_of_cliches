@@ -1,5 +1,5 @@
 .Welcome_Screen{
-    position: absolute;
+    position: relative;
     top: 5%;
     left: 2%;
     width: 96%;
@@ -7,7 +7,7 @@
 }
 
 .Welcome_Menu{
-    position: absolute;
+    position: relative;
     width: 20%;
     left: 30%;
     height: 44%;
@@ -16,6 +16,7 @@
 }
 
 .Welcome_Option{
+    position: absolute;
     border-color: goldenrod;
     color: darkgoldenrod;
     background-color: darkslategrey;
