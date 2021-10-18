@@ -37,7 +37,7 @@ class WelcomeOrLoginOrGame extends Component{
         }
         else if (props.functions.inNew){
             return(
-                <div id="New">
+                <div id="NewGame">
                     <NewGame />
                 </div>
             )

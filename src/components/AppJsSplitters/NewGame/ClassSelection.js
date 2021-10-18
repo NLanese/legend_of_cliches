@@ -2,22 +2,24 @@ import { connect } from 'react-redux';
 import React, {Component} from 'react';
 import ClassCard from './ClassCard'
 
+import './css/ClassSelection.css'
+
 export default class ClassSelection extends Component {
 
 
     render(){
         return(
-            <div id="ClassSelection">
+            <div id="CardContainer">
 
-                <div id="MageClassCard">
+                <div id="Mage" className="SelectionCard">
                     <ClassCard classType={"Mage"}/>
                 </div>
 
-                <div id="Paladin">
+                <div id="Paladin" className="SelectionCard">
                     <ClassCard classType={"Paladin"} />
                 </div>
 
-                <div id="Assassin">
+                <div id="Assassin" className="SelectionCard">
                     <ClassCard classType={"Assassin"} />
                 </div>
 

@@ -1,0 +1,29 @@
+#CardContainer{
+    position: absolute;
+    height: 92%;
+    top: 4%;
+    width: 94%;
+    left: 3%;
+}
+
+.SelectionCard{
+    position: absolute;
+    width: 30%;
+    height: 90%;
+    top: 3%;
+    border-width: 2px;
+    border-color: black;
+    border-style: solid;
+}
+
+#Mage{
+    left: 2%;
+}
+
+#Paladin{
+    left: 35%;
+}
+
+#Assassin{
+    left: 68%
+}

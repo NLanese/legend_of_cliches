@@ -2,6 +2,7 @@ import { connect } from 'react-redux';
 import React, {Component} from 'react';
 import ClassSelection from './ClassSelection'
 import AttributeSelection from './AttributeSelection';
+import './css/NewGame.css'
 
 const mapStateToProps = (state) => {
     return({
@@ -15,7 +16,7 @@ class NewGame extends Component {
         // This is the first "step" in creating a new game
         if (props.newGame.inClassSelection){
             return(
-                <div>
+                <div id="ClassSelection">
                     <ClassSelection />
                 </div>
 
@@ -24,7 +25,7 @@ class NewGame extends Component {
         // This is the second "step" in creating a new game
         else if (props.newGame.inAttributes){
             return(
-                <div>
+                <div id="AttributeSelection">
                     <AttributeSelection />
                 </div>
             )
@@ -34,7 +35,7 @@ class NewGame extends Component {
 
     render(){
         return(
-            <div>
+            <div id="NewGameContentContainer">
                 {this.which_new_game_segment(this.props)}
             </div>
         )
