@@ -2,6 +2,7 @@ import { connect } from 'react-redux';
 import React, {Component} from 'react';
 import getImage from '../../../helpers/image_helpers/getImage'
 import determineStats from '../../../helpers/new_game_helpers/starter_helper'; // Called on line 53 to render the Stats section of the class Card
+import determineCardImage from '../../../helpers/new_game_helpers/determineCardImage';
 
 
 const mapDispatchToProps = (dispatch) => {
@@ -60,8 +61,8 @@ class ClassCard extends Component {
         if (state.upperCardSetting == "Image"){
             return(
                 <div id="ClassCardImage">
-                    {/* this will be a (classType) name recieved from the props. This will then be inputted into an Image helper */}
-                    {/* use a getImage value to insert here */}
+                    {/* The following method is imported from helpers/new_game_helpers/determineCardImages and takes an input expecting "Mage" "Assassin" or "Paladin" */}
+                    {determineCardImage(this.state.classType)}
                 </div>
             )
         }

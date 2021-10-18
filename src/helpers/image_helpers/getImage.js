@@ -1,11 +1,16 @@
 // Import all image files from the images folder
 // import '../images/<whatever>'
 import ForestImages from "./getForestImages";
+import ClassSelectionImages from './getClassSelectionImages'
+
 let forest = new ForestImages()
+let classCards = new ClassSelectionImages()
 
 export const allImages = {
     classSelection: {
-        // mageCardImage: 
+        mage: classCards.mage(),
+        assassin: classCards.assassin(),
+        paladin: classCards.paladin()
     },
     forest: {
         pathways: {
