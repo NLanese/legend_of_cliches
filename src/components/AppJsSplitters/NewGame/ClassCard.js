@@ -4,6 +4,8 @@ import getImage from '../../../helpers/image_helpers/getImage'
 import determineStats from '../../../helpers/new_game_helpers/starter_helper'; // Called on line 53 to render the Stats section of the class Card
 import determineCardImage from '../../../helpers/new_game_helpers/determineCardImage';
 
+import "./css/ClassCard.css"
+
 
 const mapDispatchToProps = (dispatch) => {
     return({
@@ -60,7 +62,9 @@ class ClassCard extends Component {
         console.log(state)
         if (state.upperCardSetting == "Image"){
             return(
+
                 <div id="ClassCardImage">
+                    <h1 id="ClassImageTitle">{this.state.classType}</h1>
                     {/* The following method is imported from helpers/new_game_helpers/determineCardImages and takes an input expecting "Mage" "Assassin" or "Paladin" */}
                     {determineCardImage(this.state.classType)}
                 </div>
