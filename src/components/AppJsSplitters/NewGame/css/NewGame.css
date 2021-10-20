@@ -1,11 +1,28 @@
 #ClassSelection{
     position: absolute;
-    width: 100%;
-    height: 100%;
+    width: 93.6%;
+    height: 95%;
+    top: 2.5%;
+    left: 3.2%;
 }
 
 #NewGameContentContainer{
     position: absolute;
     width: 100%;
     height: 100%;
+}
+
+#CCH_Prompt{
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-size: 34pt;
+    position: absolute;
+    left: 38%;
+}
+
+#CCH_Content{
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-size: 18pt;
+    position: absolute;
+    left: 33%;
+    top: 10%;
 }

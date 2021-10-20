@@ -43,16 +43,20 @@ class ClassCard extends Component {
     renderStats = (classCardObj) => {
         return(
             <div>
-                <h1 id="ClassTypeNameOnCard">{classCardObj.className}</h1>
-                <h1 className="CardHeaders">Bio</h1>
-                <div id="CardBio">{classCardObj.bio}</div>
-                <h1 className="CardHeaders">Stats</h1>
-                <h3 className="CardStats_1" id="atk_1">{classCardObj.atk}</h3>
-                <h3 className="CardStats_1" id="sAtk_1">{classCardObj.sAtk}</h3>
-                <h3 className="CardStats_1" id="def_1">{classCardObj.def}</h3>
-                <h3 className="CardStats_1" id="sDef_1">{classCardObj.sDef}</h3>
-                <h3 className="CardStats_1" id="spd_1">{classCardObj.spd}</h3>
-                <h3 className="CardStats_1" id="hp_1">{classCardObj.atk}</h3>
+                <div id="BioPart">
+                    <h1 id="ClassTypeNameOnCard">{classCardObj.className}</h1>
+                    <h1 className="CardHeaders">Bio</h1>
+                    <div id="CardBio">{classCardObj.bio}</div>
+                </div>
+                <div id="StatPart">
+                    <h1 className="CardHeaders">Stats</h1>
+                    <h3 className="CardStats_1" id="atk_1">Strength: {classCardObj.atk}</h3>
+                    <h3 className="CardStats_1" id="sAtk_1">Intelligence: {classCardObj.sAtk}</h3>
+                    <h3 className="CardStats_1" id="def_1">Endurance: {classCardObj.def}</h3>
+                    <h3 className="CardStats_1" id="sDef_1">Willpower: {classCardObj.sDef}</h3>
+                    <h3 className="CardStats_1" id="spd_1">Dexterity: {classCardObj.spd}</h3>
+                    <h3 className="CardStats_1" id="hp_1">Health: {classCardObj.hp}</h3>
+                </div>
             </div>
         )
     }
@@ -60,25 +64,27 @@ class ClassCard extends Component {
     // Handles whether to render the stats or image
     renderUpperCard = (state) => {
         console.log(state)
+        // If the card hasn't been clicked or has been clicked an evemn amount of times it will show the image
         if (state.upperCardSetting == "Image"){
             return(
-
-                <div id="ClassCardImage">
+                <div id="ClassCardImage" onClick={() => this.flipCard(this.state)}>
                     <h1 id="ClassImageTitle">{this.state.classType}</h1>
                     {/* The following method is imported from helpers/new_game_helpers/determineCardImages and takes an input expecting "Mage" "Assassin" or "Paladin" */}
                     {determineCardImage(this.state.classType)}
                 </div>
             )
         }
+        // If the card has been clicked an odd number of times, it will display stats
         else if (state.upperCardSetting == "Stats"){
             return(
-                <div id="ClassCardStatsAndBio">
+                <div id="ClassCardStatsAndBio" onClick={() => this.flipCard(this.state)}>
                     {this.renderStats(determineStats(state.classType))}
                 </div>
             )
         }
     }
 
+    // Called when submit button is selected
     selectHero = (event, classType) => {
         event.preventDefault()
         this.props.makeSelection(classType)

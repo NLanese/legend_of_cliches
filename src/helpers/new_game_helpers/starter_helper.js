@@ -3,7 +3,7 @@ export default function determineStats(name){
         case("Mage"):
             return({
                 class_name: "Mage",
-                bio: " - DO THIS LATER - ",
+                bio: "Born with the gift of magic for some reason, the mage can do all sorts of stuff. Y'know, fireballs, ice... stuff like that. People hate them cause 'ahh they're different' kind of like the *-Men Series. I can't use the letter I want for Copyright reasons but we all know what I'm getting at. Not great inn a fist fight, so these fighters tend to stay far from oponents and deal damage that way or even heal/boost teammates",
                 atk: 6,
                 sAtk: 10,
                 def: 5,
@@ -15,7 +15,7 @@ export default function determineStats(name){
         case("Paladin"):
             return({
                 class_name: "Paladin",
-                bio: " - DO THIS LATER - ",
+                bio: "A holy sodlier or whatever, the paladin can call upon the heavens to boost himself or heal allies in battle, while the armor he wears can withstand the mightiest of blows...Cause it's hlly or whatever, I don't know. These players can take a hit but lack ranged abilities.",
                 atk: 7,
                 sAtk: 6,
                 def:  11,
@@ -27,7 +27,7 @@ export default function determineStats(name){
         case("Assassin"):
             return({
                 class_name: "Assassin",
-                bio: " - DO THIS LATER - ",
+                bio: "Super weirdo loner as a creep, the assassin just always loved knives, joined a cult, something like that, you pick. This is called legend of a cliches for a reason, the writing's gonna be sloppy. Deal with it. The assassin has very low health, but devasting attacks and unqie abilities that allow him to do massive damage while potentially leaving battle unscathed.",
                 atk: 11,
                 sAtk: 9,
                 def: 7,

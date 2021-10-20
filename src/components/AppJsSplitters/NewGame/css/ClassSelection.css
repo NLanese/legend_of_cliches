@@ -6,6 +6,12 @@
     left: 3%;
 }
 
+.Overlay{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
 .SelectionCard{
     position: absolute;
     width: 30%;
