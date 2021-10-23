@@ -45,12 +45,18 @@ class StatUpgradePanel extends Component {
     handleAddClick = (event, name) => {
         event.preventDefault()
         // Locks the upgrade buttons when you have no points left
-        if (this.props.levelUp.attributePoints > 0){
+        if (this.props.levelUp.pointsRemaining > 0){
             // Dispatches to change the levelUp state, thus keeping all the changes safely held until the user submits them
             this.props.upAttribute(name)
+
+            // This is only to get Health to increase by 5, everything else by 1 
+            let up = 1
+            if (name == "Health"){
+                up = 5
+            }
             // Changes the local values which dictate the text and color of the text
             this.setState({
-                ...this.state, value: this.state.value + 1, times_increased: this.state.times_increased + 1
+                ...this.state, value: this.state.value + up, times_increased: this.state.times_increased + 1
             })
         }
     }
@@ -78,7 +84,7 @@ class StatUpgradePanel extends Component {
         return(
             <div id="Stat_And_Arrows">
                 {/* this button can only be clicked if the stat has had an increase to it  */}
-                <button id="StatMinus" onClick={(event) => this.handleMinusClick((event, this.state.name))}> - </button>
+                <button id="StatMinus" onClick={event => this.handleMinusClick(event, this.state.name)}> - </button>
                 {/* this button can be clicked as long as levelUp.pointsRemaining is greater than 0 */}
                 <button id="StatAdd" onClick={event => this.handleAddClick(event, this.state.name)}> + </button>
                 {/* this will render the actual text to let the user know what they're upgrading. The color will be green if upgraded, grey if not */}

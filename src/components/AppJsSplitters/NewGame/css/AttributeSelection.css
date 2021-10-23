@@ -44,3 +44,25 @@
     position: absolute;
     top: 70%;    
 }
+
+.StatCompleteButton{
+    position: absolute;
+    top: 82%;
+    left: 6%;
+    border: black;
+    border-style: groove;
+    border-radius: 2%;
+    font-size: xx-large;
+    padding: 1%;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    background-color: darkslategrey;
+    color: goldenrod;
+}
+
+#NotAllAssigned{
+    font-size: 11pt;
+    left: 1%;
+    background-color: gray;
+    color: rgb(184, 19, 19);
+    font-weight: 800;
+}
