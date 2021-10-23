@@ -1,6 +1,5 @@
 import { connect } from 'react-redux';
 import React, {Component} from 'react';
-import getImage from '../../../helpers/image_helpers/getImage'
 import determineStats from '../../../helpers/new_game_helpers/starter_helper'; // Called on line 53 to render the Stats section of the class Card
 import determineCardImage from '../../../helpers/new_game_helpers/determineCardImage';
 
@@ -22,7 +21,6 @@ class ClassCard extends Component {
             upperCardSetting: "Image",      // This will either be set to Image or Stats and will dictate what upperCardRender will return
             classType: props.classType      // This is used to fetch images and determineStats
         }
-        console.log(this.state)
     }
 
     // Changes the Card's state to change it from Image to Stats
@@ -63,7 +61,6 @@ class ClassCard extends Component {
 
     // Handles whether to render the stats or image
     renderUpperCard = (state) => {
-        console.log(state)
         // If the card hasn't been clicked or has been clicked an evemn amount of times it will show the image
         if (state.upperCardSetting == "Image"){
             return(
@@ -91,7 +88,6 @@ class ClassCard extends Component {
     }
 
     render(){
-        console.log(this.state)
         return(
             <div className="Class_Card">
                 {/* This is the top 70% of the card. It will be an image with a name, and when clicked will rotate toa bio and default stats */}
@@ -100,7 +96,7 @@ class ClassCard extends Component {
                 </div>
                 {/* This will be a selection button */}
                 <div className="Class_Card_Bottom">
-                    <button id="ClassSelectButton" onClick={(event) => this.selectHero(event, this.props.classType)}>Select Class</button>
+                    <button id="ClassSelectButton" onClick={(event) => this.selectHero(event, determineStats(this.props.classType))}>Select Class</button>
                 </div>
             </div>
         )

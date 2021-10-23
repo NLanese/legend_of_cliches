@@ -18,34 +18,33 @@ export default function manageLevelUp(state = {
         case("LEVEL_UP"):
             return {attributePoints: howManyPoints(action.payload), pointsRemaining: howManyPoints(action.payload)}
 
-
-
-        // The following cases will only occur INSIDE AN ATTRIBUTE SELECTION COMPONENT
-
-
         // {type: "MINUS_POINT" payload: <string of stat>}
         case("MINUS_POINT"):
             return {...state, pointsRemaining: state.pointsRemaining + 1}
 
         // {type: "ADD_POINT" payload <string of stat>}
         case("ADD_POINT"):
-            if (action.payload == "atk"){
+            if (action.payload == "Strength"){
                 return {...state, pointsRemaining: state.pointsRemaining - 1, atkInc: state.atk + 1}
             }
-            else if (action.payload == 'sAtk'){
+            else if (action.payload == 'Intelligence'){
                 return {...state, pointsRemaining: state.pointsRemaining - 1, sAtkInc: state.sAtk + 1}
             }
-            else if (action.payload == 'def'){
+            else if (action.payload == 'Endurance'){
                 return {...state, pointsRemaining: state.pointsRemaining - 1, defInc: state.def + 1}
             }
-            else if (action.paylaod == 'sDef'){
+            else if (action.paylaod == 'Willpower'){
                 return {...state, pointsRemaining: state.pointsRemaining - 1, sDefInc: state.sDef + 1}
             }
-            else if (action.payload == "spd"){
+            else if (action.payload == "Speed"){
                 return {...state, pointsRemaining: state.pointsRemaining - 1, spdInc: state.spd + 1}
             }
-            else if (action.payload == "hp"){
+            else if (action.payload == "Health"){
                 return {...state, pointsRemaining: state.pointsRemaining - 1, hpInc: state.hp + 5}
+            }
+            else{
+                console.log("Error, I got a payload of " + action.payload)
+                return {...state}
             }
 
         default:

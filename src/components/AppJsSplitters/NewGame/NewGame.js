@@ -25,7 +25,7 @@ class NewGame extends Component {
         // This is the second "step" in creating a new game
         else if (props.newGame.inAttributes){
             return(
-                <div id="AttributeSelection">
+                <div id="Overlay">
                     <AttributeSelection />
                 </div>
             )

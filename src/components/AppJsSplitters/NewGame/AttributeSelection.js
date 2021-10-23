@@ -2,6 +2,8 @@ import { connect } from 'react-redux';
 import React, {Component} from 'react';
 import StatUpgradePanel from '../../Moves_And_Stats/StatUpgradePanel';
 
+import './css/AttributeSelection.css'
+
 const mapStateToProps = (state) => {
     return({
         newGame: state.newGame,
@@ -17,17 +19,18 @@ const mapDispatchToProps = (dispatch) => {
 }
 
 class AttributeSelection extends Component {
-    constructor(){
-        super()
+    constructor(props){
+        super(props)
+        console.log(props)
         this.state = {
             // Each stat will be the current value (which is assigned to each class by default) 
             // plus whatever increases have been made
-            atk: this.props.newGame.currentPlayerObj.atk + this.props.levelUp.atk ,
-            sAtk: this.props.newGame.currentPlayerObj.sAtk + this.props.levelUp.sAtk ,
-            def: this.props.newGame.currentPlayerObj.def + this.props.levelUp.def ,
-            sDef: this.props.newGame.currentPlayerObj.sDef + this.props.levelUp.sDef ,
-            spd: this.props.newGame.currentPlayerObj.spd + this.props.levelUp.spd ,
-            hp: this.props.newGame.currentPlayerObj.hp + this.props.levelUp.hp 
+            atk: this.props.newGame.currentPlayerObj.atk + this.props.levelUp.atkInc ,
+            sAtk: this.props.newGame.currentPlayerObj.sAtk + this.props.levelUp.sAtkInc ,
+            def: this.props.newGame.currentPlayerObj.def + this.props.levelUp.defInc,
+            sDef: this.props.newGame.currentPlayerObj.sDef + this.props.levelUp.sDefInc,
+            spd: this.props.newGame.currentPlayerObj.spd + this.props.levelUp.spdInc,
+            hp: this.props.newGame.currentPlayerObj.hp + this.props.levelUp.hpInc 
         }
     }
 
@@ -61,28 +64,29 @@ class AttributeSelection extends Component {
     }
 
     render(){
+        console.log(this.state)
         return(
             <div id="AttributeSelection">
                 <div id='AttributeSelectionHeading'>
                     You have {this.props.levelUp.pointsRemaining} Attribute Points left to assign!
                 </div>
                 <div id="atkAtr1" className="StatAreaAttrSel">
-                    <StatUpgradePanel name={"atk"} value={this.state.atk}/>
+                    <StatUpgradePanel name={"Strength"} value={this.state.atk}/>
                 </div>
                 <div id="sAtkAtr1" className="StatAreaAttrSel">
-                    <StatUpgradePanel name={"sAtk"} value={this.state.sAtk}/>
+                    <StatUpgradePanel name={"Intelligence"} value={this.state.sAtk}/>
                 </div>
                 <div id="DefAtr1" className="StatAreaAttrSel">
-                    <StatUpgradePanel name={"def"} value={this.state.def}/>
+                    <StatUpgradePanel name={"Endurance"} value={this.state.def}/>
                 </div>
                 <div id="sDefAtr1" className="StatAreaAttrSel">
-                    <StatUpgradePanel name={"sDef"} value={this.state.sDef}/>
+                    <StatUpgradePanel name={"Willpower"} value={this.state.sDef}/>
                 </div>
                 <div id="spdAtr1" className="StatAreaAttrSel">
-                    <StatUpgradePanel name={"spd"} value={this.state.spd}/>
+                    <StatUpgradePanel name={"Dexterity"} value={this.state.spd}/>
                 </div>
                 <div id="hpAtr1" className="StatAreaAttrSel">
-                    <StatUpgradePanel name={"hp"} value={this.state.hp}/>
+                    <StatUpgradePanel name={"Health"} value={this.state.hp}/>
                 </div>
                 <div id="ContinueAtrSel">
                     {this.renderContinueButton(this.props.levelUp.pointsRemaining)}

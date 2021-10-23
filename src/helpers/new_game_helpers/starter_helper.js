@@ -3,7 +3,7 @@ export default function determineStats(name){
         case("Mage"):
             return({
                 class_name: "Mage",
-                bio: "Born with the gift of magic for some reason, the mage can do all sorts of stuff. Y'know, fireballs, ice... stuff like that. People hate them cause 'ahh they're different' kind of like the *-Men Series. I can't use the letter I want for Copyright reasons but we all know what I'm getting at. Not great inn a fist fight, so these fighters tend to stay far from oponents and deal damage that way or even heal/boost teammates",
+                bio: "Born with the gift of magic for some reason, born with it, ate a radioactive frog, I don't really care. The mage can do cool stuff with fire and ice and whatever. Not great in a fist fight, so these fighters tend to stay far from oponents and deal damage that way or even heal/boost teammates",
                 atk: 6,
                 sAtk: 10,
                 def: 5,

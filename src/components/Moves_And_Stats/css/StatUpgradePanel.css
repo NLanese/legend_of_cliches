@@ -1,7 +1,51 @@
 #IncStatLvlUp{
     color: #0dbb27;
+    margin: 0%;
+    position: absolute;
+    top: 0%;
 }
 
 #regStatLlUp{
-    color: black
+    color: black;
+    margin: 0%;
+    position: absolute;
+    top: 0%;
+}
+
+#StatUpgradeValue{
+    position: absolute;
+    top: 0%;
+    width: 5%;
+    margin: 0%;
+}
+
+#Stat_And_Arrows{
+    position: absolute;
+    width: 40%;
+    height: 5%;
+}
+
+#StatNameOnPanel{
+    position: absolute;
+    top: 5%;
+    left: 1%;
+    margin: 0%;
+}
+
+#StatMinus{
+    position: absolute;
+    left: 25%;
+    top: 5%;
+}
+
+#StatUpgradeValue{
+    position: absolute;
+    left: 40%;
+    top: 5%;    
+}
+
+#StatAdd{
+    position: absolute;
+    left: 55%;
+    top: 5%;    
 }

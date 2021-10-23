@@ -1,0 +1,46 @@
+#AttributeSelection{
+    position: absolute;
+    top: 5%;
+    height: 92%;
+    left: 3%;
+    width: 93%;
+}
+
+#AttributeSelectionHeading{
+    position: absolute;
+    top: 5%;
+    font-size: x-large;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+.StatAreaAttrSel{
+    position: absolute;
+    top: 20%;
+    height: 8.5%;
+    width: 100%;
+}
+
+#sAtkAtr1{
+    position: absolute;
+    top: 30%;
+}
+
+#DefAtr1{
+    position: absolute;
+    top: 40%;
+}
+
+#sDefAtr1{
+    position: absolute;
+    top: 50%;
+}
+
+#spdAtr1{
+    position: absolute;
+    top: 60%;
+}
+
+#hpAtr1{
+    position: absolute;
+    top: 70%;    
+}

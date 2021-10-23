@@ -1,5 +1,6 @@
 import { connect } from 'react-redux';
 import React, {Component} from 'react';
+
 import './css/StatUpgradePanel.css'
 
 const mapStateToProps = (state) => {
@@ -19,8 +20,8 @@ const mapDispatchToProps = (dispatch) => {
 
 class StatUpgradePanel extends Component {
 // Gets a prop passed down as "value" a single integer. Also gets "name" which will be a a string of the stat's name
-    constructor(){
-        super()
+    constructor(props){
+        super(props)
         this.state = {
             value: this.props.value,                        // Passed down from Parent Component
             times_increased: 0,                             // Goes up once every tme AddClick is executed. If above 0, goes down 1 every time MinusClick is executed
@@ -58,14 +59,18 @@ class StatUpgradePanel extends Component {
     // This is just sued to render the stat value, of increased it will have a tag id that makes the text green
     renderStatColor = (state) => {
         if (state.times_increased > 0){
-            <div id="incStatLvlUp">
-                {state.name}
-            </div>
+            return(
+                <div id="IncStatLvlUp">
+                    {state.value}
+                </div>
+            )
         }
-        else{            
-            <div id="regStatLvlUp">
-                {state.name}
-            </div>
+        else{       
+            return(
+                <div id="regStatLvlUp">
+                    {state.value}
+                </div>
+            )     
         }
     }
 
@@ -75,9 +80,10 @@ class StatUpgradePanel extends Component {
                 {/* this button can only be clicked if the stat has had an increase to it  */}
                 <button id="StatMinus" onClick={(event) => this.handleMinusClick((event, this.state.name))}> - </button>
                 {/* this button can be clicked as long as levelUp.pointsRemaining is greater than 0 */}
-                <button id="StatValue" onClick={event => this.handleAddClick(event, this.state.name)}> + </button>
+                <button id="StatAdd" onClick={event => this.handleAddClick(event, this.state.name)}> + </button>
                 {/* this will render the actual text to let the user know what they're upgrading. The color will be green if upgraded, grey if not */}
-                <h4 id="StatNameOnPanel"> {this.renderStatColor(this.state)} </h4>
+                <h4 id="StatNameOnPanel"> {this.state.name} </h4>
+                <h4 id="StatUpgradeValue">{this.renderStatColor(this.state)}</h4>
             </div>
         )
     }
