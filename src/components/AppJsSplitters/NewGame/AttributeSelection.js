@@ -14,14 +14,17 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
     return({
         // This can only be accessed when levelUp.pointsRemaining == 0
-        completeSelection: (playerObj) => dispatch({type: "SUBMIT_FOR_REVIEW", payload: playerObj })
+        // It will lock the current attribute values and move on to the next screen
+        completeSelection: (playerObj) => dispatch({type: "ADVANCE", payload: playerObj })
     })
 }
 
 class AttributeSelection extends Component {
+
+    // Creates a local state that inherits all of the appropriate attribuite values from 
+    // aa player object
     constructor(props){
         super(props)
-        console.log(props)
         this.state = {
             // Each stat will be the current value (which is assigned to each class by default) 
             // plus whatever increases have been made
@@ -44,6 +47,8 @@ class AttributeSelection extends Component {
         }
     }
 
+    // Contains the DISPATCH action that submits the attribute points. 
+    // It will only be clickable if all of the attribute points have been spent
     renderContinueButton = (pointsRemaining) => {
         // If all points have been spent, the button will appear and be clickable
         if (pointsRemaining == 0){

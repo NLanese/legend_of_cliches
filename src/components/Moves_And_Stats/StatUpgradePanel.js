@@ -11,9 +11,14 @@ const mapStateToProps = (state) => {
     })
 }
 
+// Contains dispatch actions to add or remove the proper value from a stat when it's
+// plus or minus attribute indicator is clicked
 const mapDispatchToProps = (dispatch) => {
     return({
+        // This occurs when a stat plus is clicked, adding the appropriate value to the appropriate stat
         upAttribute: (name) => dispatch({type: "ADD_POINT", payload: name}),
+
+        // This occurs when a stat minus is clicked, removing the appropriate value from the appropriate stat
         downAttribute: (name) => dispatch({type: "MINUS_POINT", payload: name})
     })
 }
@@ -29,19 +34,28 @@ class StatUpgradePanel extends Component {
         }
     }
 
+    // This is called when a minus next to a stat value is clicked, indicated an attribute point be removed
     handleMinusClick = (event, name) => {
         event.preventDefault()
         // Cannot remove points from an attribute you have not upgraded
         if (this.state.times_increased > 0){
             // changes the levelUp reducer to properly convey the chnages 
             this.props.downAttribute(name)
+
+            // This is only to get Health to decrease by 5, everything else by 1 
+            let down = 1
+            if (name == "Health"){
+                down = 5
+            }
+
             // Changes the local values which dictate the text and color of the text
             this.setState({
-                ...this.state, value: this.state.value - 1, times_increased: this.state.times_increased - 1
+                ...this.state, value: this.state.value - down, times_increased: this.state.times_increased - 1
             })
         }
     }
 
+    // This is called when a plus next to a stat value is clicked, indicated an attribute point be added
     handleAddClick = (event, name) => {
         event.preventDefault()
         // Locks the upgrade buttons when you have no points left
