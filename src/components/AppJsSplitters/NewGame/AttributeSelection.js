@@ -1,6 +1,7 @@
 import { connect } from 'react-redux';
 import React, {Component} from 'react';
 import StatUpgradePanel from '../../Moves_And_Stats/StatUpgradePanel';
+import determineCardImage from '../../../helpers/new_game_helpers/determineCardImage';
 
 import './css/AttributeSelection.css'
 
@@ -37,18 +38,21 @@ class AttributeSelection extends Component {
         }
     }
 
-    changeStatAdd = () => {
-
-    }
-
     completeAtrSel = () => {
         let playerObj = {
-            atk: this.state.atk
+            atk: this.state.atk,
+            sAtk: this.state.atk,
+            def: this.state.def,
+            sDef: this.state.sDef,
+            spd: this.state.spd,
+            hp: this.state.hp
         }
+        
     }
 
     // Contains the DISPATCH action that submits the attribute points. 
     // It will only be clickable if all of the attribute points have been spent
+    // A successful click will run completeAtrSel function
     renderContinueButton = (pointsRemaining) => {
         // If all points have been spent, the button will appear and be clickable
         if (pointsRemaining == 0){
@@ -72,6 +76,12 @@ class AttributeSelection extends Component {
         console.log(this.state)
         return(
             <div id="AttributeSelection">
+                <div id="AttrImg">
+                    {determineCardImage(this.props.newGame.currentPlayerObj.class_name)}
+                </div>
+                <div id="AttrInfor">
+                    <h1 id="Attribute Descriptions"></h1>
+                </div>
                 <div id='AttributeSelectionHeading'>
                     You have {this.props.levelUp.pointsRemaining} Attribute Points left to assign!
                 </div>

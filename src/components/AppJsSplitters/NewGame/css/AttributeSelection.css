@@ -66,3 +66,12 @@
     color: rgb(184, 19, 19);
     font-weight: 800;
 }
+
+#AttrImg{
+    position: absolute;
+    width: 25%;
+    height: 65%;
+    left: 37%;
+    top: 10%;
+
+}

@@ -1,6 +1,7 @@
 import { allImages } from "../image_helpers/getImage"
 
-// This is exported to ClassCard.js in tge NewGame directory inside of AppJsSplitter. 
+// This is exported to ClassCard.js in the NewGame directory inside of AppJsSplitter. 
+// This is exported to AttributeSelection.js in the NewGame directory inside of AppJsSplitter. 
 export default function determineCardImage(title){
     if (title == "Mage"){
         return allImages.classSelection.mage
