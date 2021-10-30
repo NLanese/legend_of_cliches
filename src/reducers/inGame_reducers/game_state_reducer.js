@@ -12,4 +12,10 @@ export default function manageGameState(state = {
     inCutscene: false,          // True if the user is in a cutscene
     worldState: 0               // This mimics what "Act" the user is in. This can change maps, NPC interactions, and enemies spawned. It may even make parts of the game innaccessible
 
-})
+}, action){
+    switch(action.type){
+
+        default:
+            return {...state}
+    }
+}

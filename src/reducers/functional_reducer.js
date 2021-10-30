@@ -5,6 +5,7 @@ export default function manageFunctions(state ={
     inWelcome: true,            // True at first. This is what tells App to render the Welcome.js component
     inLogin: false,             // True if "Resume Journey" is selected from the Welcome.js component 
     inNew: false,               // True if "New Story" is selected from the Welcome.js component
+    inConfirm: false,           // The Final step of New. This will allow the user to confirm, name, and submit their character to the database
 
     inGame: false,              // True if a new game is started or a journey is resumed
     isLoading: false,           // True if the game is currently loading
@@ -37,9 +38,13 @@ action){
 
         // THIS CASE ALSO EXISTS INSIDE OF THE NEW_GAME AS WELL AS PLAYER  AND LEVEL_UP REDUCERS
         // {type: "ADVANCE", payload: <playerObj>}
-        case("ADVANCE"):    
-            return {...state, inLevelUp: false, inNew: false, inGame: true}
-
+        case("ADVANCE"):   
+            if (state.player_id == null){
+                return {...state, inLevelUp: false, inNew: false, inConfirm: true}   
+            }
+            else{
+                return {...state, inLevelUp: false, inNew: false, inGame: true}
+            }
 
         default:
             return state
