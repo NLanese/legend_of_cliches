@@ -9,9 +9,6 @@ export default function manageFunctions(state ={
     inGame: false,              // True if a new game is started or a journey is resumed
     isLoading: false,           // True if the game is currently loading
 
-    inGrid: false,              // True if the player is in the game world, not in a fight, inventory, map, or other view
-    inMap: false,               // True if the user selected their map
-    inInv: false,               // True if the user sleected their inventory
     inLevelUp: false,           // True is the user just leveled up
 
     openedMenu: false,          // True if the user opens their menu. This does not overtake the current component but rather it slides in
@@ -37,6 +34,11 @@ action){
         // {type: "START_NEW_GAME", payload: {player_id: xxxxxx, player: {<object with all player details>}
         case("LOGIN_TO_GAME"):
             return {...state, inWelcome: false, inGame: true, player_id: action.payload.player_id}
+
+        // THIS CASE ALSO EXISTS INSIDE OF THE NEW_GAME AS WELL AS PLAYER  AND LEVEL_UP REDUCERS
+        // {type: "ADVANCE", payload: <playerObj>}
+        case("ADVANCE"):    
+            return {...state, inLevelUp: false, inNew: false, inGame: true}
 
 
         default:

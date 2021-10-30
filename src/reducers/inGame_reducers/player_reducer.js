@@ -9,6 +9,12 @@ export default function handlePlayer(state = {
 }, action){
     switch(action.type){
 
+        // THIS CASE ALSO EXISTS INSIDE OF THE NEW_GAME AS WELL AS LEVEL_UP AND FUNCTIONAL REDUCERS
+        // {type: "ADVANCE", payload: <playerObj>}
+        case("ADVANCE"):
+            console.log(action.payload)
+            let obj = action.payload
+            return {...state, atk: obj.atk, sAtk: obj.sAtk, def: obj.def, sDef: obj.sDef, spd: obj.spd, hp: obj.hp}
 
         default:
             return {...state}

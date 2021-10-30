@@ -34,7 +34,8 @@ export default function manageLevelUp(state = {
         case("ADD_POINT"):
             return(returnProperAttributeObject(state, action.payload, "add"))
 
-        // THIS CASE ALSO EXISTS INSIDE OF THE NEW_GAME AS WELL AS PLAYER REDUCERS
+        // THIS CASE ALSO EXISTS INSIDE OF THE NEW_GAME AS WELL AS PLAYER  AND FUNCTIONAL REDUCERS
+        // {type: "ADVANCE", payload: <playerObj>}
         case("ADVANCE"):
             return{attributePoints: 0, pointsRemaining: 0, atkInc: 0, sAtkInc: 0, defInc: 0, sDefInc: 0, spdInc: 0, hpInc: 0}
 

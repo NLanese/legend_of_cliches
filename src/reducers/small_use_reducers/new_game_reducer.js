@@ -22,7 +22,7 @@ action){
             return {...state, inClassSelection: false, classSelected: true, inAttributes: true, currentPlayerObj: action.payload}
 
 
-        // THIS CASE ALSO EXISTS INSIDE OF THE LEVEL_UP AS WELL AS PLAYER REDUCERS
+        // THIS CASE ALSO EXISTS INSIDE OF THE LEVEL_UP AS WELL AS PLAYER  AND FUNCTIONAL REDUCERS
         // Thia case should only be hit ONCE her player to END the New Game route
         // {type: "ADVANCE", payload: <playerObj>}
         case("ADVANCE"):
