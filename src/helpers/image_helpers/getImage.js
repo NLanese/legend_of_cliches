@@ -2,15 +2,22 @@
 // import '../images/<whatever>'
 import ForestImages from "./getForestImages";
 import ClassSelectionImages from './getClassSelectionImages'
+import MoveTreeImages from './getMoveTreeImages'
 
 let forest = new ForestImages()
 let classCards = new ClassSelectionImages()
+let moveTrees = new MoveTreeImages()
 
 export const allImages = {
     classSelection: {
         mage: classCards.mage(),
         assassin: classCards.assassin(),
         paladin: classCards.paladin()
+    },
+    moveTrees: {
+        mage_element: moveTrees.element(),
+        mage_life: moveTrees.life(),
+        mage_necro: moveTrees.nerco()
     },
     forest: {
         pathways: {
