@@ -8,7 +8,8 @@ import './css/AttributeSelection.css'
 const mapStateToProps = (state) => {
     return({
         newGame: state.newGame,
-        levelUp: state.levelUp
+        levelUp: state.levelUp,
+        functional: state.functional
     })
 }
 
@@ -29,23 +30,36 @@ class AttributeSelection extends Component {
         this.state = {
             // Each stat will be the current value (which is assigned to each class by default) 
             // plus whatever increases have been made
+            class: this.props.newGame.class,
             atk: this.props.newGame.currentPlayerObj.atk + this.props.levelUp.atkInc ,
             sAtk: this.props.newGame.currentPlayerObj.sAtk + this.props.levelUp.sAtkInc ,
             def: this.props.newGame.currentPlayerObj.def + this.props.levelUp.defInc,
             sDef: this.props.newGame.currentPlayerObj.sDef + this.props.levelUp.sDefInc,
             spd: this.props.newGame.currentPlayerObj.spd + this.props.levelUp.spdInc,
-            hp: this.props.newGame.currentPlayerObj.hp + this.props.levelUp.hpInc 
+            hp: this.props.newGame.currentPlayerObj.hp + this.props.levelUp.hpInc, 
+
+            // This is to keep track of any entered name during the New Game Route
+            name: null
         }
     }
 
-    completeAtrSel = () => {
+    completeAtrSel = (functions, state) => {
+        let name = null
+        if (functions.id == null){
+            name = state.name
+        }
+        else{
+            name = functions.name
+        }
         let playerObj = {
+            class: this.state.class
             atk: this.state.atk,
             sAtk: this.state.atk,
             def: this.state.def,
             sDef: this.state.sDef,
             spd: this.state.spd,
-            hp: this.state.hp
+            hp: this.state.hp,
+            name: name
         }
         
     }
@@ -67,6 +81,29 @@ class AttributeSelection extends Component {
             return(
                 <div id="NotAllAssigned" className="StatCompleteButton">
                     Assign All Points Before Continuing!
+                </div>
+            )
+        }
+    }
+
+    nameChange = (event) => {
+        this.setState({
+            ...this.state, name: event.target.value
+        })
+    }
+
+    renderNameTag = (functions) => {
+        if (functions.id != null){
+            return(
+                <div id="PlayerNameLocked">
+                    {functions.name}
+                </div>
+            )
+        }
+        else{
+            return(
+                <div id="PlayerNamePending">
+                    Enter Your Hero's Name: <input type="text" onChange={(event) => this.nameChange(event)} />
                 </div>
             )
         }

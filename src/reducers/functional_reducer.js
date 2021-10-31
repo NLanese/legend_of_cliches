@@ -1,7 +1,9 @@
 export default function manageFunctions(state ={
     player_id: null,            // Allows user to keep track of his information and "log back in" using his/her player_id and a chosen useename
+    name: null,
     map_selected: null,         // Dictates what map is shown if inGame is true
 
+    isLoading: false,           // False at first. Only true during a dispatch that involves a fetch
     inWelcome: true,            // True at first. This is what tells App to render the Welcome.js component
     inLogin: false,             // True if "Resume Journey" is selected from the Welcome.js component 
     inNew: false,               // True if "New Story" is selected from the Welcome.js component
@@ -12,7 +14,7 @@ export default function manageFunctions(state ={
 
     inLevelUp: false,           // True is the user just leveled up
 
-    openedMenu: false,          // True if the user opens their menu. This does not overtake the current component but rather it slides in
+
 },
 action){
     switch(action.type){

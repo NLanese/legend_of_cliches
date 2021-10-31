@@ -1,5 +1,6 @@
 export default function manageNewGame(state ={
     classSelected: false,
+    class: null,
     inClassSelection: false,
     inAttributes: false,
 
@@ -19,7 +20,7 @@ action){
         // {type: "CLASS_SELECTED"}
         case("CLASS_SELECTED"):
             console.log("New_Game_Reducer, case 'CLASS_SELECTED' hit: payload is " + action.payload)
-            return {...state, inClassSelection: false, classSelected: true, inAttributes: true, currentPlayerObj: action.payload}
+            return {...state, inClassSelection: false, classSelected: true, class: action.payload, inAttributes: true, currentPlayerObj: action.payload}
 
 
         // THIS CASE ALSO EXISTS INSIDE OF THE LEVEL_UP AS WELL AS PLAYER  AND FUNCTIONAL REDUCERS
