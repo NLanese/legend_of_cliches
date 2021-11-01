@@ -3,7 +3,7 @@ import DOMAIN from "../constants/domain"
 
 // This is imported by AttributeSelection.js
 export default function completeAttributeSelection(playerObj){
-    const playerPOST = {
+    const playerPOST = ({
         method: "POST",
         headers: {
             "Content-Type": "application/json",
@@ -17,10 +17,15 @@ export default function completeAttributeSelection(playerObj){
             spd: playerObj.spd,
             hp: playerObj.hp,
             name: playerObj.name
-        }
-    }
+        })
+    })
     return (dispatch) => {
-        dispatch("LOAD_ATTRIBUTES")
-        fetch(DOMAIN() + "/players/update_or_create")
+        dispatch("LOADING")
+        fetch((DOMAIN() + "/players/update_or_create"), playerPOST)
+            .then(resp => resp.json())
+            .then(json => {
+                console.log(json)
+                dispatch({type: "ATTRIBUTE_UPDATE_COMPLETE", payload: json})
+            })
     }
 }

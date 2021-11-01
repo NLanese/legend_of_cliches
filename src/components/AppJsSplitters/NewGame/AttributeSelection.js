@@ -2,6 +2,7 @@ import { connect } from 'react-redux';
 import React, {Component} from 'react';
 import StatUpgradePanel from '../../Moves_And_Stats/StatUpgradePanel';
 import determineCardImage from '../../../helpers/new_game_helpers/determineCardImage';
+import completeAttributeSelection from '../../../dispatch_actions/CompleteAttributeSelection';
 
 import './css/AttributeSelection.css'
 
@@ -17,7 +18,7 @@ const mapDispatchToProps = (dispatch) => {
     return({
         // This can only be accessed when levelUp.pointsRemaining == 0
         // It will lock the current attribute values and move on to the next screen
-        completeSelection: (playerObj) => dispatch({type: "ADVANCE", payload: playerObj })
+        completeSelection: (playerObj) => completeAttributeSelection(playerObj)
     })
 }
 
@@ -43,7 +44,7 @@ class AttributeSelection extends Component {
         }
     }
 
-    completeAtrSel = (functions, state) => {
+    completeAtrSel = (functions, state, props) => {
         let name = null
         if (functions.id == null){
             name = state.name
@@ -52,7 +53,7 @@ class AttributeSelection extends Component {
             name = functions.name
         }
         let playerObj = {
-            class: this.state.class
+            class: this.state.class,
             atk: this.state.atk,
             sAtk: this.state.atk,
             def: this.state.def,
@@ -61,7 +62,7 @@ class AttributeSelection extends Component {
             hp: this.state.hp,
             name: name
         }
-        
+        props.completeSelection(playerObj)
     }
 
     // Contains the DISPATCH action that submits the attribute points. 
@@ -71,7 +72,7 @@ class AttributeSelection extends Component {
         // If all points have been spent, the button will appear and be clickable
         if (pointsRemaining == 0){
             return(
-                <div id="AllAssigned" className="StatCompleteButton" onClick={this.completeAtrSel}>
+                <div id="AllAssigned" className="StatCompleteButton" onClick={this.completeAtrSel(this.props.functional, this.state, this.props)}>
                     Continue
                 </div>
             )
