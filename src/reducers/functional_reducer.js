@@ -41,12 +41,6 @@ action){
         // THIS CASE ALSO EXISTS INSIDE OF THE NEW_GAME AS WELL AS PLAYER  AND LEVEL_UP REDUCERS
         // {type: "ADVANCE", payload: <playerObj>}
         case("ADVANCE"):   
-            if (state.player_id == null){
-                return {...state, inLevelUp: false, inNew: false, inConfirm: true}   
-            }
-            else{
-                return {...state, inLevelUp: false, inNew: false, inGame: true}
-            }
 
         // THIS CASE IS ALSO PRESENT IN THE LEVEL_UP AND PLAYER REDUCERS
         // {type: "ATTRIBUTE_UPDATE_COMPLETE", payload: <playerObj>}
