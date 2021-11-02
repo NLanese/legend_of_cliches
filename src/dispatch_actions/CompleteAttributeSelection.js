@@ -20,7 +20,7 @@ export default function completeAttributeSelection(playerObj){
         })
     })
     return (dispatch) => {
-        dispatch("LOADING")
+        dispatch({type: "LOADING"})
         fetch((DOMAIN() + "/players/update_or_create"), playerPOST)
             .then(resp => resp.json())
             .then(json => {

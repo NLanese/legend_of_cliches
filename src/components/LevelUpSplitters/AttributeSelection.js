@@ -18,7 +18,7 @@ const mapDispatchToProps = (dispatch) => {
     return({
         // This can only be accessed when levelUp.pointsRemaining == 0
         // It will lock the current attribute values and move on to the next screen
-        completeSelection: (playerObj) => completeAttributeSelection(playerObj)
+        completeSelection: (playerObj) => dispatch(completeAttributeSelection(playerObj))
     })
 }
 
@@ -62,6 +62,7 @@ class AttributeSelection extends Component {
             hp: this.state.hp,
             name: name
         }
+        console.log("right before the completeSelection dispatch, line 65")
         props.completeSelection(playerObj)
     }
 
@@ -72,7 +73,7 @@ class AttributeSelection extends Component {
         // If all points have been spent, the button will appear and be clickable
         if (pointsRemaining == 0 && state.name != null){
             return(
-                <div id="AllAssigned" className="StatCompleteButton" onClick={this.completeAtrSel(this.props.functional, this.state, this.props)}>
+                <div id="AllAssigned" className="StatCompleteButton" onClick={() => this.completeAtrSel(this.props.functional, this.state, this.props)}>
                     Continue
                 </div>
             )
@@ -111,7 +112,6 @@ class AttributeSelection extends Component {
     }
 
     render(){
-        console.log(this.props.levelUp)
         return(
             <div id="AttributeSelection">
                 <div id="AttrImg">
