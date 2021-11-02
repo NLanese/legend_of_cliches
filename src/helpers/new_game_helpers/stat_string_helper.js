@@ -7,25 +7,26 @@
 export default function returnProperAttributeObject(state, payload, add_or_sub){
     let negator = 1
     if (add_or_sub == "sub"){
+        console.log("Sub!")
         negator = -1
     }
     if (payload == "Strength"){
-        return {...state, pointsRemaining: state.pointsRemaining - 1, atkInc: state.atk + negator}
+        return {...state, pointsRemaining: state.pointsRemaining - negator, atkInc: state.atkInc + negator}
     }
     else if (payload == 'Intelligence'){
-        return {...state, pointsRemaining: state.pointsRemaining - 1, sAtkInc: state.sAtk + negator}
+        return {...state, pointsRemaining: state.pointsRemaining - negator, sAtkInc: state.sAtkInc + negator}
     }
     else if (payload == 'Endurance'){
-        return {...state, pointsRemaining: state.pointsRemaining - 1, defInc: state.def + negator}
+        return {...state, pointsRemaining: state.pointsRemaining - negator, defInc: state.defInc + negator}
     }
     else if (payload == 'Willpower'){
-        return {...state, pointsRemaining: state.pointsRemaining - 1, sDefInc: state.sDef + negator}
+        return {...state, pointsRemaining: state.pointsRemaining - negator, sDefInc: state.sDefInc + negator}
     }
     else if (payload == "Speed"){
-        return {...state, pointsRemaining: state.pointsRemaining - 1, spdInc: state.spd + negator}
+        return {...state, pointsRemaining: state.pointsRemaining - negator, spdInc: state.spdInc + negator}
     }
     else if (payload == "Health"){
-        return {...state, pointsRemaining: state.pointsRemaining - 1, hpInc: state.hp + 5 * negator}
+        return {...state, pointsRemaining: state.pointsRemaining - negator, hpInc: state.hpInc + 5 * negator}
     }
     else{
         console.log("Error, I got a payload of " + payload)

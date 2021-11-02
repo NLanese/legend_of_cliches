@@ -1,6 +1,6 @@
 import MageElemental from '../../images/MoveTrees/Mage_Elemental.jpg'
 import MageLifeEnergy from '../../images/MoveTrees/Mage_LifeEnergy.jpg'
-import MageNecromancer from '../../images/MoveTrees/Mage_Necromancer.jpg'
+import MageNecromancer from '../../images/MoveTrees/Mage_Necromancy.jpg'
 
 export default class MoveTreeImages{
     nerco(){

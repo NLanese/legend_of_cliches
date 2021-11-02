@@ -1,8 +1,8 @@
 import { connect } from 'react-redux';
 import React, {Component} from 'react';
-import StatUpgradePanel from '../../Moves_And_Stats/StatUpgradePanel';
-import determineCardImage from '../../../helpers/new_game_helpers/determineCardImage';
-import completeAttributeSelection from '../../../dispatch_actions/CompleteAttributeSelection';
+import StatUpgradePanel from '../Moves_And_Stats/StatUpgradePanel';
+import determineCardImage from '../../helpers/new_game_helpers/determineCardImage';
+import completeAttributeSelection from '../../dispatch_actions/CompleteAttributeSelection';
 
 import './css/AttributeSelection.css'
 
@@ -10,7 +10,7 @@ const mapStateToProps = (state) => {
     return({
         newGame: state.newGame,
         levelUp: state.levelUp,
-        functional: state.functional
+        functional: state.functions
     })
 }
 
@@ -68,9 +68,9 @@ class AttributeSelection extends Component {
     // Contains the DISPATCH action that submits the attribute points. 
     // It will only be clickable if all of the attribute points have been spent
     // A successful click will run completeAtrSel function
-    renderContinueButton = (pointsRemaining) => {
+    renderContinueButton = (pointsRemaining, state) => {
         // If all points have been spent, the button will appear and be clickable
-        if (pointsRemaining == 0){
+        if (pointsRemaining == 0 && state.name != null){
             return(
                 <div id="AllAssigned" className="StatCompleteButton" onClick={this.completeAtrSel(this.props.functional, this.state, this.props)}>
                     Continue
@@ -96,14 +96,14 @@ class AttributeSelection extends Component {
     renderNameTag = (functions) => {
         if (functions.id != null){
             return(
-                <div id="PlayerNameLocked">
+                <div id="PlayerNameLocked" className="AttrNameTag">
                     {functions.name}
                 </div>
             )
         }
         else{
             return(
-                <div id="PlayerNamePending">
+                <div id="PlayerNamePending" className="AttrNameTag">
                     Enter Your Hero's Name: <input type="text" onChange={(event) => this.nameChange(event)} />
                 </div>
             )
@@ -111,11 +111,14 @@ class AttributeSelection extends Component {
     }
 
     render(){
-        console.log(this.state)
+        console.log(this.props.levelUp)
         return(
             <div id="AttributeSelection">
                 <div id="AttrImg">
                     {determineCardImage(this.props.newGame.currentPlayerObj.class_name)}
+                </div>
+                <div id="AttrNameTag">
+                    {this.renderNameTag(this.props.functional)}
                 </div>
                 <div id="AttrInfor">
                     <h1 id="Attribute Descriptions"></h1>
@@ -142,7 +145,7 @@ class AttributeSelection extends Component {
                     <StatUpgradePanel name={"Health"} value={this.state.hp}/>
                 </div>
                 <div id="ContinueAtrSel">
-                    {this.renderContinueButton(this.props.levelUp.pointsRemaining)}
+                    {this.renderContinueButton(this.props.levelUp.pointsRemaining, this.state)}
                 </div>
             </div>
         )

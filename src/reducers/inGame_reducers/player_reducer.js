@@ -13,7 +13,7 @@ export default function managePlayer(state = {
         // THIS CASE ALSO EXISTS IN THE LEVEL_UP REDUCER
         // {type: "CLASS_SELECTED", payload: <playerObj>}
         case("CLASS_SELECTED"):
-            return {...state, class: payload.class_name}
+            return {...state, class: action.payload.class_name}
 
         // THIS CASE ALSO EXISTS INSIDE OF THE LEVEL_UP REDUCER AND FUNCTIONAL REDUCER
         // {type: "ATTRIBUTE_SELECTION_COMPLETE", payload: <playerObj>}
