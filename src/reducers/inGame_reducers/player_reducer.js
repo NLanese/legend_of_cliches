@@ -6,6 +6,7 @@ export default function managePlayer(state = {
     sDef: 0,
     spd: 0,
     hp: 0,
+    activeMoves: [],
     moves1: [],
     moves2: [],
     moves3: []
