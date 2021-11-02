@@ -10,8 +10,8 @@ const mapStateToProps = (state) => {
 
 class MoveTree extends Component{
     
-    generateMoveTrees = (class) => {
-        let moveTrees = MoveTreeImages(class)
+    generateMoveTrees = (class_type) => {
+        let moveTrees = MoveTreeImages(class_type)
         return(
             <div id="AllMoveTrees">
                 <div className="MoveTree" id="MT1">
@@ -28,7 +28,9 @@ class MoveTree extends Component{
     }
     render(){
         return(
-
+            <div className="Overlay">
+                {this.generateMoveTrees(this.props.player.class)}
+            </div>
         )
     }
 }

@@ -2,6 +2,7 @@ import { connect } from 'react-redux';
 import React, {Component} from 'react';
 import ClassSelection from './ClassSelection'
 import AttributeSelection from '../../LevelUpSplitters/AttributeSelection';
+import MoveTree from '../../LevelUpSplitters/MoveTree';
 import './css/NewGame.css'
 
 const mapStateToProps = (state) => {
@@ -33,7 +34,7 @@ class NewGame extends Component {
         }
         else if (props.levelUp.inMoveTree){
             <div id="Overlay">
-                
+                <MoveTree />
             </div>
         }
     }
