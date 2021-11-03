@@ -19,7 +19,6 @@ action){
         // THIS CASE ALSO EXISTS INSIDE OF THE PLAYER REDUCER   
         // {type: "CLASS_SELECTED", payload: <playerObj>}
         case("CLASS_SELECTED"):
-            console.log("New_Game_Reducer, case 'CLASS_SELECTED' hit: payload is " + action.payload)
             return {...state, inClassSelection: false, classSelected: true, class: action.payload, inAttributes: true, currentPlayerObj: action.payload}
 
 

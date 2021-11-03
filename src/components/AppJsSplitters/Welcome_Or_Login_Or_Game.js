@@ -13,14 +13,10 @@ const mapStateToProps = (state) => {
         functions: state.functions
     })
 }
-const mapDispatchToProps = (dispatch) => {
-    return({    })
-}
 
 class WelcomeOrLoginOrGame extends Component{
 
     determineScreen = (props) => {
-        console.log(props.functions)
         if (props.functions.inWelcome){
             return (
                 <div id="Welcome">
@@ -54,7 +50,6 @@ class WelcomeOrLoginOrGame extends Component{
     render(){
         return(
             <div className="Welcome_Or_Login_Or_Game_Window">
-                {console.log("inside of Welcome_Or_Login_Or_Game, the current props are" + this.props)}
                 {this.determineScreen(this.props)}
             </div>
         )
