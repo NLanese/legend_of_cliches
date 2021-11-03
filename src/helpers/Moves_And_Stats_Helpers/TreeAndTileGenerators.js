@@ -26,10 +26,12 @@ export function generateMovesList(class_type, moveTreeNumber){
 
 export default function generateMoveTiles(movesList){
     // This should go through each Move in the MoveList and create a div and Component for the MoveTile
+    let i = -1 // This keeps track of which tree each tile will be a part of
     return movesList.map(move => {
+        i = i + 1
         return(
             <div id={move.name + "_tile"}>
-                <MoveTile thisMove={move} />
+                <MoveTile thisMove={move} tree={i}/>
             </div>
         )
     })

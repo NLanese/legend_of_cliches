@@ -1,3 +1,3 @@
 export default function DOMAIN(){
-    return "http://localhost3006"
+    return "http://localhost:3006"
 }
