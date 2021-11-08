@@ -1,5 +1,6 @@
 export default function managePlayer(state = {
     class: null,
+    lvl: 1,
     atk: 0,
     sAtk: 0,
     def: 0,

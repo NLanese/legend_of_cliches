@@ -10,7 +10,8 @@ const mapStateToProps = (state) => {
     return({
         newGame: state.newGame,
         levelUp: state.levelUp,
-        functional: state.functions
+        functional: state.functions,
+        player: state.player
     })
 }
 
@@ -32,12 +33,13 @@ class AttributeSelection extends Component {
             // Each stat will be the current value (which is assigned to each class by default) 
             // plus whatever increases have been made
             class: this.props.newGame.class,
-            atk: this.props.newGame.currentPlayerObj.atk + this.props.levelUp.atkInc ,
-            sAtk: this.props.newGame.currentPlayerObj.sAtk + this.props.levelUp.sAtkInc ,
-            def: this.props.newGame.currentPlayerObj.def + this.props.levelUp.defInc,
-            sDef: this.props.newGame.currentPlayerObj.sDef + this.props.levelUp.sDefInc,
-            spd: this.props.newGame.currentPlayerObj.spd + this.props.levelUp.spdInc,
-            hp: this.props.newGame.currentPlayerObj.hp + this.props.levelUp.hpInc, 
+            lvl: this.props.player.lvl,
+            atk: this.props.newGame.currentPlayerObj.atk,
+            sAtk: this.props.newGame.currentPlayerObj.sAtk,
+            def: this.props.newGame.currentPlayerObj.def,
+            sDef: this.props.newGame.currentPlayerObj.sDef,
+            spd: this.props.newGame.currentPlayerObj.spd,
+            hp: this.props.newGame.currentPlayerObj.hp, 
 
             // This is to keep track of any entered name during the New Game Route
             name: null
@@ -53,16 +55,16 @@ class AttributeSelection extends Component {
             name = functions.name
         }
         let playerObj = {
-            class: this.state.class,
-            atk: this.state.atk,
-            sAtk: this.state.atk,
-            def: this.state.def,
-            sDef: this.state.sDef,
-            spd: this.state.spd,
-            hp: this.state.hp,
+            class: this.state.class.class_name,
+            lvl: this.state.lvl,
+            atk: this.state.atk + props.levelUp.atkInc,
+            sAtk: this.state.sAtk  + props.levelUp.sAtkInc,
+            def: this.state.def + props.levelUp.defInc,
+            sDef: this.state.sDef + props.levelUp.sDefInc,
+            spd: this.state.spd + props.levelUp.spdInc,
+            hp: this.state.hp + props.levelUp.hpInc,
             name: name
         }
-        console.log("right before the completeSelection dispatch, line 65")
         props.completeSelection(playerObj)
     }
 
@@ -88,12 +90,14 @@ class AttributeSelection extends Component {
         }
     }
 
+    // This is only used the first time a player enters this screen
     nameChange = (event) => {
         this.setState({
             ...this.state, name: event.target.value
         })
     }
 
+    // This determines whether a name has been or needs to be entered
     renderNameTag = (functions) => {
         if (functions.id != null){
             return(
