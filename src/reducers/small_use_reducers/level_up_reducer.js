@@ -9,6 +9,7 @@ import returnProperAttributeObject from "../../helpers/new_game_helpers/stat_str
 
 
 export default function manageLevelUp(state = {
+    inAttributes: false,               // This is true when you first level up. Unlike MoveSelection, you cannot just leave this without completing it
     attributePoints: howManyPoints(0), // This will be reset every time a player enters the level up or creation screens
     pointsRemaining: howManyPoints(0), // Initially, this will eqaul howManyPoints but will go down every time AddClick is executed in the StatUpgradePanel, and up once (not over attributePoints) everytime MinusClick is executed 
     atkInc: 0,
@@ -26,7 +27,7 @@ export default function manageLevelUp(state = {
         // THIS CASE ALSO EXISTS IN THE FUNCTIONAL REDUCER
         // {type: "LEVEL_UP", payload: <int depicting the level>}
         case("LEVEL_UP"):
-            return {attributePoints: howManyPoints(action.payload), pointsRemaining: howManyPoints(action.payload)}
+            return {inAttributes: true, attributePoints: howManyPoints(action.payload), pointsRemaining: howManyPoints(action.payload), movePointsRemaining: state.movePointsRemaining + 1}
 
         // {type: "MINUS_POINT" payload: <string of stat>}
         case("MINUS_POINT"):
