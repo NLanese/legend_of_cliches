@@ -13,6 +13,7 @@ class MoveTree extends Component{
 
 
     render(){
+        console.log("Inside of Move Tree. We made it, boys")
         return(
             <div className="Overlay">
                 {generateMoveTrees(this.props.player.class)}

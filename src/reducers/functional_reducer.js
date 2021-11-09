@@ -45,7 +45,7 @@ action){
         // THIS CASE IS ALSO PRESENT IN THE LEVEL_UP AND PLAYER REDUCERS
         // {type: "ATTRIBUTE_UPDATE_COMPLETE", payload: <playerObj>}
         case("ATTRIBUTE_UPDATE_COMPLETE"):
-            return {...state, isLoading: false, name: action.payload.name}
+            return {...state, isLoading: false, name: action.payload.name, inLevelUp: true, inGame: true}
 
         default:
             return state

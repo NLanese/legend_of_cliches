@@ -54,6 +54,7 @@ class AttributeSelection extends Component {
         else{
             name = functions.name
         }
+        // This is what gets passed into CompeteSelection, thus CompleteAttributeSelection.js which is a dispatch/fetch
         let playerObj = {
             class: this.state.class.class_name,
             lvl: this.state.lvl,
