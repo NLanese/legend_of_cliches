@@ -37,11 +37,9 @@ export default function completeAttributeSelection(playerObj){
     })
     return (dispatch) => {
         dispatch({type: "LOADING"})
-        console.log(playerObj)
         fetch((DOMAIN() + "/players/update_or_create"), playerPOST)
             .then(resp => resp.json())
             .then(json => {
-                console.log(json)
                 dispatch({type: "ATTRIBUTE_UPDATE_COMPLETE", payload: json})
             })
     }
