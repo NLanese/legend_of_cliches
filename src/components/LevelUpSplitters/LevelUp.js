@@ -8,6 +8,7 @@ import MoveTree from "./MoveTree"
 // This is a JSX const function to handle what LevelUp renders
 let generateLevelUp = (props) => {
     if (props.inAttributes == true){
+        console.log("In Attributes")
         return (
             <div id="AttributeSelectionFromLvlUp" className="Overlay">
                 <AttributeSelection />
@@ -15,11 +16,16 @@ let generateLevelUp = (props) => {
         )
     }
     else if (props.inMoveTree == true){
+        console.log("In Move Tree")
         return(
             <div id="MoveTreeFromLvlUp" className="Overlay">
                 <MoveTree />
             </div>
         )
+    }
+    else{
+        console.log("Error inside generateLevelUp, inside of LevelUp.js, neither inAttributes nor inMoveTree is true. Props look like this...")
+        console.log(props)
     }
 }
 
@@ -27,7 +33,7 @@ let generateLevelUp = (props) => {
 export const LevelUp = (props) => {
     console.log(props)
     return(
-        <div class="Overlay">{generateLevelUp(props)}</div>
+        <div className="Overlay">{generateLevelUp(props.props)}</div>
     )
 }
 

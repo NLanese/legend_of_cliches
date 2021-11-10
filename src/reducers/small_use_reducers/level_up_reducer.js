@@ -44,7 +44,7 @@ export default function manageLevelUp(state = {
         // THIS CASE ALSO EXISTS INSIDE OF THE PLAYER REDUCER AND FUNCTIONAL REDUCER
         // {type: "ATTRIBUTE_SELECTION_COMPLETE", payload: <playerObj>}
         case("ATTRIBUTE_UPDATE_COMPLETE"):
-            return{attributePoints: 0, pointsRemaining: 0, atkInc: 0, sAtkInc: 0, defInc: 0, sDefInc: 0, spdInc: 0, hpInc: 0, inMoveTree: true}
+            return{attributePoints: 0, pointsRemaining: 0, atkInc: 0, sAtkInc: 0, defInc: 0, sDefInc: 0, spdInc: 0, hpInc: 0, inMoveTree: true, inAttributes: false}
 
         default:
             return {...state}
