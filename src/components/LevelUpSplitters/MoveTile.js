@@ -1,6 +1,5 @@
 import { connect } from 'react-redux';
 import React, {Component} from 'react';
-import { MageMoves } from '../../constants/moves/mageMoves';
 
 const mapStateToProps = (state) => {
     return({
