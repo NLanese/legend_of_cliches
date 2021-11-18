@@ -5,12 +5,18 @@ import { MageMoves } from "../../constants/moves/mage/mageMoves"
 // ALL of these functions and constants will be exported to MoveTree.js
 
 
+// This is called in generateMoveTiles
+
 // This will generate an array of moves, specific to class and tree
 export function generateMovesList(class_type, moveTreeNumber){
+    console.log("Attempting to generate movesLists. Taking class_type and moveTreeNumber as params")
+    console.log(class_type)
+    console.log(moveTreeNumber)
     if (class_type == "Mage"){
         // mtn1 = elemental
         // mtn2 = life energy
         // mtn3 = necromancy
+        console.log(MageMoves[moveTreeNumber])
         return MageMoves[moveTreeNumber] //This is an imported object
     }
     else if (class_type == "Paladin"){
@@ -25,15 +31,14 @@ export function generateMovesList(class_type, moveTreeNumber){
 }
 
 // This is called in generateMoveTrees.
+
 // class_type_moves is one of MageMoves PaladinMoves or AssassinMoves which are all arrays of 3 objects each 
 // moveTreeNumber will correlate to which tree's tiles should be generated
 // Mage1 = elemental Mage2 = LifeEnergy Mage3 = Necromancy
 // Paladin1 = NA Paladin2 = NA Paladin3 = NA
 // Assn1 = NA Assn2 = NA Assn3 = NA
-export default function generateMoveTiles(class_type_moves, moveTreeNumber){
-    let movesList = generateMovesList(class_type_moves[moveTreeNumber])
-    console.log("MovesList is")
-    console.log(movesList)
+export default function generateMoveTiles(class_type, moveTreeNumber){
+    let movesList = generateMovesList(class_type, moveTreeNumber)
     // This should go through each Move in the MoveList and create a div and Component for the MoveTile
     let i = -1 // This keeps track of which tree each tile will be a part of
     return movesList.map(move => {
@@ -47,6 +52,8 @@ export default function generateMoveTiles(class_type_moves, moveTreeNumber){
 }
 
 
+// THIS IS THE MAIN FUNCTION OF THIS FILE
+// This is what gets called in MoveTree.js, and it will call directly or indirectly every other function in this file
 export const generateMoveTrees = (class_type) => {
     // MoveTreeImages is an imported function. It takes "Mage", "Paladin", or "Assassin" as a parameter
     let moveTrees = MoveTreeImages(class_type)
